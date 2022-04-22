@@ -21,7 +21,7 @@ For the project "real-time-web" we had to make an application that works with we
 
 - [Features](#features)
 - [Activiy](#activitydiagram)
-- [Socketio](#socketio
+- [Socketio](#socketio)
 - [Usage](#Usage)
 - [Meta](#meta)
 - [License](#license)
