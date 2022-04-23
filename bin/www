@@ -1,37 +1,28 @@
-#!/usr/bin/env node
+let app = require("../server");
+let debug = require("debug")("real-time-web-2122:server");
+let http = require("http");
+let port = normalizePort(process.env.PORT || "3000");
 
-/**
- * Module dependencies.
- */
-
-var app = require("../server");
-var debug = require("debug")("real-time-web-2122:server");
-var http = require("http");
-
-/**
- * Get port from environment and store in Express.
- */
-
-var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
-/**
- * Create HTTP server.
- */
+let server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 
-var server = http.createServer(app);
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  socket.on("disconnect", () => {
+    console.log("a user disconnected :(");
+  });
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg);
+  });
+});
 
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
@@ -49,10 +40,6 @@ function normalizePort(val) {
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
-
 function onError(error) {
   if (error.syscall !== "listen") {
     throw error;
@@ -60,7 +47,6 @@ function onError(error) {
 
   var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
-  // handle specific listen errors with friendly messages
   switch (error.code) {
     case "EACCES":
       console.error(bind + " requires elevated privileges");
@@ -74,10 +60,6 @@ function onError(error) {
       throw error;
   }
 }
-
-/**
- * Event listener for HTTP server "listening" event.
- */
 
 function onListening() {
   var addr = server.address();
