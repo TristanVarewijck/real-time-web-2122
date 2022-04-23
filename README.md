@@ -1,4 +1,3 @@
-# CryptoTicker:
 # chat-app-rooms:
 
 ## chat-app-rooms Concept Design :pencil2:
@@ -37,10 +36,11 @@ Here you see the most common-flow in the app and how the service-worker finds hi
 
 ## Socketio
 
-##Tools
+## Tools
 
 - socket.io
 - ejs
+- express.js
 
 ## Usage
 
