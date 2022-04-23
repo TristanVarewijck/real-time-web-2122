@@ -1,6 +1,6 @@
-# chat-app-rooms:
+# real-time Crypto Ticker
 
-## chat-app-rooms Concept Design :pencil2:
+## Crypto Ticker Concept Design :pencil2:
 
 ![TechDefined-concept-design](https://github.com/TristanVarewijck/TechDefined/blob/main/assets/images/concept-display.png)
 
@@ -13,7 +13,7 @@ See the latest updated demo here:
 
 ## Description :label:
 
-For the project "real-time-web" we had to make an application that works with web-sockets. I want to make a web application where you can chat live with strangers in rooms of a certain subject.
+For the project "real-time-web" we had to make an application that works with web-sockets. I want to make a web application what received real-time crypto data visualised in a Graph. In addition i want to make a chat room for a certain Topic so people can discuss in real time the prices changes of the coin in focus.
 
 ---
 
