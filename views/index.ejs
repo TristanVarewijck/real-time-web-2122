@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layout'); -%>
+  <body>
+    <p id="price">---</p>
+
+    <!-- chat form -->
+    <form class="chat-form">
+      <label class="chat-label">
+        Enter a message:
+        <input type="text" class="chat-input" />
+      </label>
+      <input type="submit" class="chat-submit" value="enter" />
+    </form>
+  </body>
+
+  <script src="socket.io/socket.io.js" defer></script>
+</html>
