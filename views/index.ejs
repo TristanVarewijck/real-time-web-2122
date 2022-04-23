@@ -6,7 +6,38 @@
 
     <!-- chat form -->
 
+    <!-- all buyer trades -->
+    <section>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Price(ETH)</th>
+            <th scope="col">Amount(ETH)</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
     <ul id="chat-messages"></ul>
+    <!-- chat  -->
     <form id="chat-form" action="">
       <input
         type="text"
@@ -16,6 +47,7 @@
       />
       <button type="submit" value="enter">Send</button>
     </form>
+
     <script src="/socket.io/socket.io.js"></script>
   </body>
 </html>

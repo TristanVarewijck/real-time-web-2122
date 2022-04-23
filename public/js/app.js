@@ -21,6 +21,9 @@ wsPrices.onmessage = (event) => {
 
 wsTrades.onmessage = (event) => {
   let trades = JSON.parse(event.data);
+
+  trades.p = "kaas";
+
   console.log(trades);
 };
 

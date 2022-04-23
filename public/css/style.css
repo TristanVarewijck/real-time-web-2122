@@ -3,6 +3,12 @@ body {
   color: #ffffff;
 }
 
+table,
+th,
+tbody {
+  color: white;
+}
+
 /* layout grid */
 /* .parent {
   display: grid;
