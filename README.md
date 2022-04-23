@@ -1,6 +1,7 @@
 # CryptoTicker:
+# chat-app-rooms:
 
-## Crypto CryptoTicker Concept Design :pencil2:
+## chat-app-rooms Concept Design :pencil2:
 
 ![TechDefined-concept-design](https://github.com/TristanVarewijck/TechDefined/blob/main/assets/images/concept-display.png)
 
@@ -13,7 +14,7 @@ See the latest updated demo here:
 
 ## Description :label:
 
-For the project "real-time-web" we had to make an application that works with web-sockets. So we can make a "watcher" to the server and watch data in real time. The reason why we want to use web-sockets instead of Polling is because we want to show data when it changed so we don't make unecessery request to the server. 
+For the project "real-time-web" we had to make an application that works with web-sockets. I want to make a web application where you can chat live with strangers in rooms of a certain subject.
 
 ---
 
@@ -22,9 +23,8 @@ For the project "real-time-web" we had to make an application that works with we
 - [Features](#features)
 - [Activiy](#activitydiagram)
 - [Socketio](#socketio)
+- [Used Tools](#Tools)
 - [Usage](#Usage)
-- [Meta](#meta)
-- [License](#license)
 
 ---
 
@@ -36,6 +36,11 @@ Here you see the most common-flow in the app and how the service-worker finds hi
 <img src="https://github.com/TristanVarewijck/WAFStoNode/blob/main/public/assets/images/Default-flow-no-internet.png" alt="default-flow" width="600px"/>
 
 ## Socketio
+
+##Tools
+
+- socket.io
+- ejs
 
 ## Usage
 
@@ -77,22 +82,17 @@ npm start
 
 ### Thats it! :smile:
 
-
 ## Grading
+
 Your efforts will be graded using a single point rubric (see below). You will have to pass the criterion (centre column) to pass the course. During the test you will be consulted and will be given feedback on things we think deficient and things we think are an improvement on the criterion.
 
-| Deficiency | Criterion | Improvement |
-|:--|:--|:--|
-|  | *Project* Your app is working and published on Heroku. Your project is thoroughly documented in the `README.md` file in your repository. Included are a description of the data-lifecycle, real-time events and external data source used by your app. |  |
-|  | *Complexity* You’ve implemented enough real-time functionality for us to test your comprehension of the subject. A lot of functionality is self-written. You are able to manipulate online examples live. |  |
-|  | *Client-server interaction* By interacting with the app, a user can influence the data model of the server in real time by directly modifying data OR by influencing API requests between server and source. The student has set up the data manipulations. |  |
-|  | *Data management* The server maintains a data model and each client is continuously updated with the correct data. |  |
-|  | *Multi-user support* Multiple clients can connect to the server. Interaction works as expected and is not dependent on the number of clients. You can explain how your app approaches this. |  |
-
-
-
-
-
+| Deficiency | Criterion                                                                                                                                                                                                                                                   | Improvement |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
+|            | _Project_ Your app is working and published on Heroku. Your project is thoroughly documented in the `README.md` file in your repository. Included are a description of the data-lifecycle, real-time events and external data source used by your app.      |             |
+|            | _Complexity_ You’ve implemented enough real-time functionality for us to test your comprehension of the subject. A lot of functionality is self-written. You are able to manipulate online examples live.                                                   |             |
+|            | _Client-server interaction_ By interacting with the app, a user can influence the data model of the server in real time by directly modifying data OR by influencing API requests between server and source. The student has set up the data manipulations. |             |
+|            | _Data management_ The server maintains a data model and each client is continuously updated with the correct data.                                                                                                                                          |             |
+|            | _Multi-user support_ Multiple clients can connect to the server. Interaction works as expected and is not dependent on the number of clients. You can explain how your app approaches this.                                                                 |             |
 
 <!-- Here are some hints for your project! -->
 
