@@ -2,6 +2,7 @@ const ethPrice = document.getElementById("price");
 let wsPrices = new WebSocket("wss://stream.binance.com:9443/ws/etheur@ticker");
 let wsTrades = new WebSocket("wss://stream.binance.com:9443/ws/etheur@trade");
 let socket = io();
+let tradeTableBody = document.getElementById("insert-trades");
 
 // check connection
 wsPrices.onopen = () => {
@@ -16,22 +17,41 @@ wsTrades.onopen = () => {
 wsPrices.onmessage = (event) => {
   let prices = JSON.parse(event.data);
   ethPrice.innerHTML = prices.c;
-  console.log(prices.c);
 };
-
+let tradesArr = [];
+let maxTrades = 5;
 wsTrades.onmessage = (event) => {
-  let trades = JSON.parse(event.data);
+  let data = JSON.parse(event.data);
+  // compressing
+  let trade = {
+    price: Number(data.p).toFixed(2),
+    quantity: Number(data.q).toFixed(4),
+    type: data.e,
+    status: data.m,
+  };
+  //  check if array is full and delete first added item
+  if (tradesArr.length >= maxTrades) {
+    tradesArr.shift();
+  }
+  tradesArr.push(trade);
+  console.log(tradesArr);
 
-  trades.p = "kaas";
+  tradesArr.forEach((trade) => {
+    const template = `
+    <td>${trade.price}</td>
+    <td>${trade.quantity}</td>
+    <td>${trade.type}</td>
+    `;
 
-  console.log(trades);
+    const tradeBullet = document.createElement("tr");
+    tradeBullet.innerHTML = template;
+    tradeTableBody.appendChild(tradeBullet);
+  });
 };
 
 const chatMessages = document.getElementById("chat-messages");
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
-
-console.log(chatForm, chatInput);
 
 chatForm.addEventListener("submit", function (e) {
   e.preventDefault();
