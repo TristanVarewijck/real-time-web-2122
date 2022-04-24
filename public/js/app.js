@@ -1,8 +1,10 @@
+import { wsPrices, wsTrades, dataCleaning } from "./sockets.js";
+
 const ethPrice = document.getElementById("price");
-let wsPrices = new WebSocket("wss://stream.binance.com:9443/ws/etheur@ticker");
-let wsTrades = new WebSocket("wss://stream.binance.com:9443/ws/etheur@trade");
-let socket = io();
 let tradeTableBody = document.getElementById("insert-trades");
+let socket = io();
+let tradesArr = [];
+let maxTrades = 5;
 
 // check connection
 wsPrices.onopen = () => {
@@ -18,23 +20,15 @@ wsPrices.onmessage = (event) => {
   let prices = JSON.parse(event.data);
   ethPrice.innerHTML = prices.c;
 };
-let tradesArr = [];
-let maxTrades = 5;
+
 wsTrades.onmessage = (event) => {
   let data = JSON.parse(event.data);
-  // compressing
-  let trade = {
-    price: Number(data.p).toFixed(2),
-    quantity: Number(data.q).toFixed(4),
-    type: data.e,
-    status: data.m,
-  };
-  //  check if array is full and delete first added item
+  let trade = dataCleaning(data);
+
   if (tradesArr.length >= maxTrades) {
     tradesArr.shift();
   }
   tradesArr.push(trade);
-  console.log(tradesArr);
 
   tradesArr.forEach((trade) => {
     const template = `
@@ -49,6 +43,7 @@ wsTrades.onmessage = (event) => {
   });
 };
 
+// socket.io chat function
 const chatMessages = document.getElementById("chat-messages");
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
