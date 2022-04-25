@@ -35,9 +35,9 @@ Here you can see the process of the concept.
 
 Hieronder zie je 10 hele snelle schetsen om zo snel mogelijk op een concept te komen.
 
-<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/5-10.pdf" alt="schetsen 1 tot en met 5" width="600px"/>
+<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/1-5.jpg" alt="schetsen 1 tot en met 5" width="600px"/>
 
-<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/1-5.pdf" alt="schetsen 6 tot en met 10" width="600px"/>
+<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/6-10.jpg" alt="schetsen 6 tot en met 10" width="600px"/>
 
 ## Socketio
 
