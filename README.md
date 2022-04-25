@@ -136,10 +136,9 @@ Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven all
      </li>
     In het vlak links komt de chatroom die is gebaseerd op de coin id zodat iedereen die deze coin bekijkt kan discusiëren over deze coin.  
     </li>
-      </li>
+    </li>
    Hierboven heb je een zoekbalk waarin je coins kan zoeken. En dus rooms kan joinen.   
     </li>
-
    </ol>
    </figcaption>
    </figure>
