@@ -104,6 +104,46 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
    </figcaption>
    </figure>
 
+**Concept draft**
+Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven allemaal samenkomen. Ik wil ervoor zorgen dat mensen kunnen zoeken op een coin en daarover data visualisaties kunnen zien gebaseeerd op real-time. Als inspiratie hiervoor heb ik de dashboard van binance gebruikt zoals je ziet hieronder. Natuurlijk is dit slechts inspiratie en zal mijn applicatie anders zijn en ook anders werken.
+
+ <figure>
+   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/binance-dashboard.png" width="600px"/>
+   <figcaption>
+   <p><strong>Binance dashboard (inspiratie)</strong></p>
+   <ul>
+    <li>
+    Hierboven zie je de dashboard die binance gebruikt. Het ziet er supper ingewikeld uit maar daarom pak ik er ook een aantal delen uit en wil ik sommige delen vervangen met een chatroom, als je op coins zoekt dan blijft de UI hetzelfde maar veranderd enkel te data. Ik wil op een manier fixen dat elk coin-id een chatroom is zodat mensen met elkaar kunnen praten over een specifieke coin in aparte rooms. 
+    </li>
+   </ul>
+   </figcaption>
+   </figure>
+
+<figure>
+   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/real-time-cryptoDashboard.png" width="600px"/>
+   <figcaption>
+   <p><strong>Concept LoFi Wireframe</strong></p>
+   <ol>
+    <li>
+     Boven aan is er ruimte voor { token price } data zoals price, 24h, high, low
+    </li>
+    </li>
+     In het grote vlak, hier komt de grafiek te staan of een ticker, die wordt gegenereerd doormiddel van de data
+    </li>
+    </li>
+    In de twee vlakken hieronder kan je de trades zien "sells" en "buys" 
+    </li>
+     </li>
+    In het vlak links komt de chatroom die is gebaseerd op de coin id zodat iedereen die deze coin bekijkt kan discusiëren over deze coin.  
+    </li>
+      </li>
+   Hierboven heb je een zoekbalk waarin je coins kan zoeken. En dus rooms kan joinen.   
+    </li>
+
+   </ol>
+   </figcaption>
+   </figure>
+
 ## Socketio
 
 ## Tools
