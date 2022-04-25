@@ -127,16 +127,16 @@ Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven all
     <li>
      Boven aan is er ruimte voor { token price } data zoals price, 24h, high, low
     </li>
-    </li>
+    <li>
      In het grote vlak, hier komt de grafiek te staan of een ticker, die wordt gegenereerd doormiddel van de data
     </li>
-    </li>
+    <li>
     In de twee vlakken hieronder kan je de trades zien "sells" en "buys" 
     </li>
-     </li>
+     <li>
     In het vlak links komt de chatroom die is gebaseerd op de coin id zodat iedereen die deze coin bekijkt kan discusiëren over deze coin.  
     </li>
-    </li>
+    <li>
    Hierboven heb je een zoekbalk waarin je coins kan zoeken. En dus rooms kan joinen.   
     </li>
    </ol>
