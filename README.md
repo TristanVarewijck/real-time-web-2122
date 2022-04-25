@@ -39,6 +39,37 @@ Hieronder zie je 10 hele snelle schetsen om zo snel mogelijk op een concept te k
 
 <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/6-10.jpg" alt="schetsen 6 tot en met 10" width="600px"/>
 
+1. Live feed
+2. Voice chatting
+3. Zoom clone
+4. Real-time crypto trades
+5. GraphTicker
+6. Telegram clone
+7. Four in a row
+8. Poll / quiz
+9. Scribble
+10. Live youtube watch
+
+**3 best concepts**
+Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het interresants vind en mogelijk kan samenvoegen tot een groter eindproduct.
+
+<figure>
+  <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/real-time-cryptoTrades.png" width="600px"/>
+  <figcaption>1. Real-time crypto trades</figcaption>
+  </figure>
+
+2. GraphTicker
+   <figure>
+   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/GraphTicker.png" width="600px"/>
+   <figcaption>2. GraphTicker</figcaption>
+   </figure>
+
+3. Telegram clone
+   <figure>
+   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/Telegram-clone.png" width="600px"/>
+   <figcaption>1. Telegram clone</figcaption>
+   </figure>
+
 ## Socketio
 
 ## Tools
