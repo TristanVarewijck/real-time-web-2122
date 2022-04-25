@@ -31,7 +31,8 @@ For the project "real-time-web" we had to make an application that works with we
 
 Here you can see the process of the concept.
 
-**Snel schetsen** <br>
+### Sketching
+
 Hieronder zie je 10 hele snelle schetsen om zo snel mogelijk op een concept te komen.
 
 <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/1-5.jpg" alt="schetsen 1 tot en met 5" width="600px"/>
@@ -49,7 +50,8 @@ Hieronder zie je 10 hele snelle schetsen om zo snel mogelijk op een concept te k
 9. Scribble
 10. Live youtube watch
 
-**3 best concepts** <br>
+### 3 concepts
+
 Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het interresants vind en mogelijk kan samenvoegen tot een groter eindproduct.
 
 <figure>
@@ -109,7 +111,8 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
 
 ---
 
-**Concept draft** <br>
+### concept draft <br>
+
 Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven allemaal samenkomen. Ik wil ervoor zorgen dat mensen kunnen zoeken op een coin en daarover data visualisaties kunnen zien gebaseeerd op real-time. Als inspiratie hiervoor heb ik de dashboard van binance gebruikt zoals je ziet hieronder. Natuurlijk is dit slechts inspiratie en zal mijn applicatie anders zijn en ook anders werken.
 
  <figure>
