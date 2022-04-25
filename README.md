@@ -55,19 +55,30 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
 
 <figure>
   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/real-time-cryptoTrades.png" width="600px"/>
-  <figcaption>1. Real-time crypto trades</figcaption>
+  <figcaption><p>**CryptoTrades**</p></figcaption>
   </figure>
 
-2. GraphTicker
-   <figure>
+<figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/GraphTicker.png" width="600px"/>
-   <figcaption>2. GraphTicker</figcaption>
+   <figcaption><p>**GraphTicker**</p></figcaption>
    </figure>
 
-3. Telegram clone
-   <figure>
+ <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/Telegram-clone.png" width="600px"/>
-   <figcaption>1. Telegram clone</figcaption>
+   <figcaption>
+   <p>**TelegramClone**</p>
+   <ol>
+    <li>
+    Chat rooms
+    </li>
+    <li>
+    Chat rooms
+    </li>
+    <li>
+    Chat rooms
+    </li>
+   </ol>
+   </figcaption>
    </figure>
 
 ## Socketio
