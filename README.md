@@ -56,7 +56,7 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
 <figure>
   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/real-time-cryptoTrades.png" width="600px"/>
   <figcaption>
-  <p>**CryptoTrades**</p>
+  <p><strong>CryptoTrades</strong></p>
   <ol>
     <li>
    Hier zie je alle trades die worden gemaakt van bitcoin (op binance)
@@ -71,7 +71,7 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
 <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/GraphTicker.png" width="600px"/>
    <figcaption>
-   <p>**GraphTicker**</p>
+   <p><strong>GraphTicker</strong></p>
    <ol>
     <li>
     Hier zie je een grafiek met een ticker die automatische real time de beweegt op basis van de data die hij binnenkrijgt.
@@ -89,7 +89,7 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
  <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/Telegram-clone.png" width="600px"/>
    <figcaption>
-   <p>**TelegramClone**</p>
+   <p><strong>TelegramClone</strong></p>
    <ol>
     <li>
     Een chat app waar je verschillende chatrooms kan joinen, als je op de knop "enter message" drukt komt er een keyboard naar boven.
