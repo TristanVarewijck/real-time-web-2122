@@ -27,12 +27,17 @@ For the project "real-time-web" we had to make an application that works with we
 
 ---
 
-## Activity Diagram
+## Proof of Concept
 
-Here you see the most common-flow in the app and how the service-worker finds his place init.
+Here you can see the process of the concept.
 
-**Default Diagram** <br>
-<img src="https://github.com/TristanVarewijck/WAFStoNode/blob/main/public/assets/images/Default-flow-no-internet.png" alt="default-flow" width="600px"/>
+**Snel schetsen**
+
+Hieronder zie je 10 hele snelle schetsen om zo snel mogelijk op een concept te komen.
+
+<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/1-5.pdf" alt="schetsen 1 tot en met 5" width="600px"/>
+
+<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/5-10.pdf" alt="schetsen 6 tot en met 10" width="600px"/>
 
 ## Socketio
 
