@@ -111,7 +111,7 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
 
 ---
 
-### concept draft
+### Concept draft
 
 Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven allemaal samenkomen. Ik wil ervoor zorgen dat mensen kunnen zoeken op een coin en daarover data visualisaties kunnen zien gebaseeerd op real-time. Als inspiratie hiervoor heb ik de dashboard van binance gebruikt zoals je ziet hieronder. Natuurlijk is dit slechts inspiratie en zal mijn applicatie anders zijn en ook anders werken.
 
@@ -156,15 +156,17 @@ Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven all
 
 Voor dit project heb ik een externe data source nodig die opties heeft voor het verkijgen van real-time data dus eigenlijk het kunnen leggen van een connectie tussen client en server. Ik heb gekozen voor de Binance API.
 
-**API**
-(Binance real-time-data API)[https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams]
+**API** <br>
+<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/binance-logo.png" width="150px"/>
+
+[Binance real-time-data API](https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams)
 Uit deze API wil ik de prijzen weten per coin maar ook wil ik meer informatie zoals: sells/buys etc.
 
 ## Data modeling
 
 Uit de API die ik gebruik wil ik een aantal key values hebben (dus niet alles) hieronder heb ik een model gemaakt met de data die ik nodig ga hebben voor mijn project.
 
-**Data model**
+**Data Model** <br>
 
 ## Socketio
 
