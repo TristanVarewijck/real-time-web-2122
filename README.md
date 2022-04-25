@@ -31,8 +31,7 @@ For the project "real-time-web" we had to make an application that works with we
 
 Here you can see the process of the concept.
 
-**Snel schetsen**
-
+**Snel schetsen** <br>
 Hieronder zie je 10 hele snelle schetsen om zo snel mogelijk op een concept te komen.
 
 <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/1-5.jpg" alt="schetsen 1 tot en met 5" width="600px"/>
@@ -50,7 +49,7 @@ Hieronder zie je 10 hele snelle schetsen om zo snel mogelijk op een concept te k
 9. Scribble
 10. Live youtube watch
 
-**3 best concepts**
+**3 best concepts** <br>
 Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het interresants vind en mogelijk kan samenvoegen tot een groter eindproduct.
 
 <figure>
@@ -67,6 +66,8 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
    </ol>
   </figcaption>
   </figure>
+
+---
 
 <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/GraphTicker.png" width="600px"/>
@@ -86,6 +87,8 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
    </figcaption>
    </figure>
 
+---
+
  <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/Telegram-clone.png" width="600px"/>
    <figcaption>
@@ -104,20 +107,23 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
    </figcaption>
    </figure>
 
-**Concept draft**
+---
+
+**Concept draft** <br>
 Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven allemaal samenkomen. Ik wil ervoor zorgen dat mensen kunnen zoeken op een coin en daarover data visualisaties kunnen zien gebaseeerd op real-time. Als inspiratie hiervoor heb ik de dashboard van binance gebruikt zoals je ziet hieronder. Natuurlijk is dit slechts inspiratie en zal mijn applicatie anders zijn en ook anders werken.
 
  <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/binance-dasboard.png" width="600px"/>
    <figcaption>
    <p><strong>Binance dashboard (inspiratie)</strong></p>
-   <ul>
-    <li>
+  <p>
     Hierboven zie je de dashboard die binance gebruikt. Het ziet er supper ingewikeld uit maar daarom pak ik er ook een aantal delen uit en wil ik sommige delen vervangen met een chatroom, als je op coins zoekt dan blijft de UI hetzelfde maar veranderd enkel te data. Ik wil op een manier fixen dat elk coin-id een chatroom is zodat mensen met elkaar kunnen praten over een specifieke coin in aparte rooms. 
-    </li>
-   </ul>
+  </p>
+   
    </figcaption>
    </figure>
+
+---
 
 <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/real-time-cryptoDashboard.png" width="600px"/>
