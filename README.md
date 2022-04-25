@@ -55,12 +55,35 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
 
 <figure>
   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/real-time-cryptoTrades.png" width="600px"/>
-  <figcaption><p>**CryptoTrades**</p></figcaption>
+  <figcaption>
+  <p>**CryptoTrades**</p>
+  <ol>
+    <li>
+   Hier zie je alle trades die worden gemaakt van bitcoin (op binance)
+    </li>
+    <li>
+   Wanneer je een andere coin zoekt maak je een connectie met de server die alle trades van in dit geval Matic terugstuurd en dit allemaal in real-time
+    </li>
+   </ol>
+  </figcaption>
   </figure>
 
 <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/GraphTicker.png" width="600px"/>
-   <figcaption><p>**GraphTicker**</p></figcaption>
+   <figcaption>
+   <p>**GraphTicker**</p>
+   <ol>
+    <li>
+    Hier zie je een grafiek met een ticker die automatische real time de beweegt op basis van de data die hij binnenkrijgt.
+    </li>
+    <li>
+    Als je op de dropdown klikt krijg je andere coins te zien.
+    </li>
+    <li>
+    De grafiek wordt nu geupdated op basis van de andere coin. 
+    </li>
+   </ol>
+   </figcaption>
    </figure>
 
  <figure>
@@ -69,13 +92,13 @@ Om dichter bij een concept te komen heb ik 3 concepten uitgekozen die ik het int
    <p>**TelegramClone**</p>
    <ol>
     <li>
-    Chat rooms
+    Een chat app waar je verschillende chatrooms kan joinen, als je op de knop "enter message" drukt komt er een keyboard naar boven.
     </li>
     <li>
-    Chat rooms
+    Nadat je met de keyboard een bericht heb verstuurd dan wordt deze gebroadcast naar alle mensen in de room.
     </li>
     <li>
-    Chat rooms
+    Vervolgens zie je ook je eigen bericht in de chatroom staan.
     </li>
    </ol>
    </figcaption>
