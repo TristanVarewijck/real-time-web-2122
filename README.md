@@ -171,7 +171,7 @@ Uit de API die ik gebruik wil ik een aantal key values hebben (dus niet alles) h
 
 <figure>
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/data-model-api.png" width="100%"/>
-   <figcaption><p>Hierboven zie je het data model die past bij mijn case, je ziet dat ik niet alle endpoints gebruik maar een aantal om mijn project te laten slagen.</p></figcapition>
+   <figcaption><p>Hierboven zie je het data model die past bij mijn case. Ook wil ik er bij vermelden dat de api open source is (geen apiKey) en data in real-time werkt waardoor ik geen rate-limiting heb. </p></figcapition>
    </figure>
 
 ## Socketio
