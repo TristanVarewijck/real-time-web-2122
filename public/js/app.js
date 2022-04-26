@@ -18,10 +18,12 @@ wsTrades.onopen = () => {
 // read changes / events
 wsPrices.onmessage = (event) => {
   let prices = JSON.parse(event.data);
+  console.log(prices);
   ethPrice.innerHTML = prices.c;
 };
 
 wsTrades.onmessage = (event) => {
+  console.log(event);
   let data = JSON.parse(event.data);
   let trade = dataCleaning(data);
 

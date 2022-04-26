@@ -156,17 +156,23 @@ Voor mijn concept wil ik een dashboard maken waarin de 3 concepten hierboven all
 
 Voor dit project heb ik een externe data source nodig die opties heeft voor het verkijgen van real-time data dus eigenlijk het kunnen leggen van een connectie tussen client en server. Ik heb gekozen voor de Binance API.
 
-**API** <br>
+**API:** <br>
 <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/binance-logo.png" width="150px"/>
 
-[Binance real-time-data API](https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams)
+[Binance real-time-data API](https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams) <br>
 Uit deze API wil ik de prijzen weten per coin maar ook wil ik meer informatie zoals: sells/buys etc.
+Hierover meer in de sectie "Data modeling"
 
 ## Data modeling
 
 Uit de API die ik gebruik wil ik een aantal key values hebben (dus niet alles) hieronder heb ik een model gemaakt met de data die ik nodig ga hebben voor mijn project.
 
 **Data Model** <br>
+
+<figure>
+   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/data-model-api.png" width="100%"/>
+   <figcaption><p>Hierboven zie je het data model die past bij mijn case, je ziet dat ik niet alle endpoints gebruik maar een aantal om mijn project te laten slagen.</p></figcapition>
+   </figure>
 
 ## Socketio
 
