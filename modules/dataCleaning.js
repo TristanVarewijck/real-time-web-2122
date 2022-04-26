@@ -6,19 +6,17 @@ const pricesCleaning = (data) => {
     high: decimalsHandler(data.h),
     low: decimalsHandler(data.l),
   };
-
   return price;
 };
 
 const tradesCleaning = (data) => {
-  let price = {
+  let trade = {
     current: decimalsHandler(data.p),
     quantity: Number(data.q).toFixed(5),
     state: Number(data.m),
     date: timeParse(data.T),
   };
-
-  return price;
+  return trade;
 };
 
 function addSlash(name) {
@@ -37,15 +35,3 @@ function timeParse(time) {
 }
 
 module.exports = { pricesCleaning, tradesCleaning };
-
-// let tradesCleaning = (data) => {
-//   let trade = {
-//     name: data.s,
-//     close: Number(data.c).toFixed(2),
-//     open: Number(data.o).toFixed(2),
-//     high: Number(data.h).toFixed(2),
-//     low: Number(data.l).toFixed(2),
-//   };
-
-//   return trade;
-// };

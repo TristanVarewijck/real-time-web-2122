@@ -23,7 +23,6 @@ router.get(`/${roomID}`, function (req, res, next) {
   wsTrades.onmessage = (event) => {
     let data = tradesCleaning(JSON.parse(event.data));
     console.log(data);
-    // console.log(event.data);
   };
   res.render("index");
 });
