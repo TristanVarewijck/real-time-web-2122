@@ -174,7 +174,21 @@ Uit de API die ik gebruik wil ik een aantal key values hebben (dus niet alles) h
    <figcaption><p>Hierboven zie je het data model die past bij mijn case. Ook wil ik er bij vermelden dat de api open source is (geen apiKey) en data in real-time werkt waardoor ik geen rate-limiting heb. </p></figcapition>
    </figure>
 
-## Socketio
+## Proof of Concept 2
+
+Op dit punt ben ik net begonnen met coderen en heb ik alvast nagedacht over "spike solution" dit houd in dat je rekening houd met het data verkeer (in dit geval over sockets) je wil niet dat je app crashed, omdat er teveel data overheen weer wordt gestuurd.
+
+--**"A socket message (emit) has a max capicity of 1MB by default."**--
+
+Dit een statement waar je rekening mee moet houden, omdat dit het de ruimte is die een emit tegelijkertijd kan versturen. Een gemiddeld instagram bericht is ongeveer 70kb dit is niet veel maar het kan wel erg oplopen als meerdere gebruikers tegelijkertijd een groot bericht versturen.
+
+Een manier om dit te voorkomen is om bijvoorbeeld een character limit te zetten. Zodat mensen niet oneidig stukken plakken text kunnen versturen zonder rate-limit.
+
+<figure>
+   <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/twitter-limit.png" width="600px"/>
+   <figcaption><p>Hierboven zie je een voorbeeld van hoe twitter de data beperkt door een character limit eraan te koppelen.</figcaption>
+
+De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of Twitter waar er data verkeer over sockets wordt verstuurd te gelijker tijd.
 
 ## Tools
 
