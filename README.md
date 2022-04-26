@@ -188,7 +188,7 @@ Een manier om dit te voorkomen is om bijvoorbeeld een character limit te zetten.
    <img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/twitter-limit.png" width="600px"/>
    <figcaption><p>Hierboven zie je een voorbeeld van hoe twitter de data beperkt door een character limit eraan te koppelen.</figcaption>
 
-De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of Twitter waar er data verkeer over sockets wordt verstuurd te gelijker tijd.
+De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of Twitter waar er data verkeer over sockets wordt verstuurd te gelijker tijd. Natuurlijk kan ik dit ook toepassen aan mijn applicatie want het kan zeker geen kwaad.
 
 ## Tools
 

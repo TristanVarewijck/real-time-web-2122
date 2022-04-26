@@ -2,14 +2,13 @@ let app = require("../server");
 let debug = require("debug")("real-time-web-2122:server");
 let http = require("http");
 let port = normalizePort(process.env.PORT || "3000");
-
 app.set("port", port);
-
 let server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+const chatio = new Server(server);
 
-io.on("connection", (socket) => {
+// chat app connection (my server user connection)
+chatio.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("disconnect", () => {
     console.log("a user disconnected :(");

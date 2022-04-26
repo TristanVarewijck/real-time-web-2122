@@ -2,38 +2,52 @@
 <html lang="en">
   <%- include('layout'); -%>
   <body>
-    <p id="price">---</p>
+    <!-- header -->
+    <header>
+      <ul class="indicators">
+        <li id="name"></li>
+        <li id="price"></li>
+        <li id="24h"></li>
+        <li id="high"></li>
+        <li id="low"></li>
+      </ul>
+      <form action="" autocomplete="off"></form>
+      <input class="searchInput" placeholder="Enter CoinID" name="searchInput"></input>
+    </header>
 
-    <!-- chat form -->
-
-    <!-- all buyer trades -->
-    <section>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Price(ETH)</th>
-            <th scope="col">Amount(ETH)</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody id="insert-trades">
-          <!-- trades -->
-        </tbody>
-      </table>
+    <!-- content -->
+    <section class="layout-grid">
+      <div class="chart"></div>
+      <div class="chatroom"></div>
+      <div class="buys"></div>
+      <div class="sells"></div>
     </section>
-
-    <ul id="chat-messages"></ul>
-    <!-- chat  -->
-    <form id="chat-form" action="">
-      <input
-        type="text"
-        id="chat-input"
-        autocomplete="off"
-        placeholder="Enter a message"
-      />
-      <button type="submit" value="enter">Send</button>
-    </form>
 
     <script src="/socket.io/socket.io.js"></script>
   </body>
 </html>
+
+<!-- <p id="price">---</p>
+<section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Price(ETH)</th>
+        <th scope="col">Amount(ETH)</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody id="insert-trades"></tbody>
+  </table>
+</section>
+
+<ul id="chat-messages"></ul>
+<form id="chat-form" action="">
+  <input
+    type="text"
+    id="chat-input"
+    autocomplete="off"
+    placeholder="Enter a message"
+  />
+  <button type="submit" value="enter">Send</button>
+</form> -->
