@@ -4,7 +4,6 @@ var express = require("express");
 var router = express.Router();
 
 let roomID = "Bitcoin";
-console.log("hoi");
 router.get(`/${roomID}`, function (req, res, next) {
   wsPrices.onopen = (event) => {
     console.log("connected to prices server");
@@ -21,8 +20,8 @@ router.get(`/${roomID}`, function (req, res, next) {
 
   // live-stream trades on "/"
   wsTrades.onmessage = (event) => {
-    let data = tradesCleaning(JSON.parse(event.data));
-    console.log(data);
+    let trade = tradesCleaning(JSON.parse(event.data));
+    console.log(trade);
   };
   res.render("index");
 });

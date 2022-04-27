@@ -1,3 +1,6 @@
+var moment = require("moment");
+console.log(moment().format());
+
 const pricesCleaning = (data) => {
   let price = {
     name: addSlash(data.s),
@@ -30,7 +33,8 @@ function decimalsHandler(number) {
 }
 
 function timeParse(time) {
-  let date = time;
+  // parsing date into clock-time
+  let date = moment(time).format("hh:mm:ss a");
   return date;
 }
 
