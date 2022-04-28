@@ -13,6 +13,12 @@ html {
   --lightGray: #c4c4c4;
   --white: #ffffff;
   --blue: #5cfdd6;
+  --green: #21df96;
+  --buy1: rgba(0, 197, 121, 0.2);
+  --buy2: rgba(0, 197, 121, 0.28);
+  --red: #ff6060;
+  --sell1: #431b1e;
+  --sell2: #50181c;
   --fontStyle: "Inter", Helvetica, Arial, sans-serif;
 }
 
@@ -23,13 +29,12 @@ body {
   height: 100vh;
 }
 
-/* header layouts */
+/* nav layout */
 header {
   padding: 2em 2em 0 2em;
   height: 5em;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr 1fr; */
   gap: 15px 15px;
   grid-auto-flow: row;
   grid-template-areas: "indicators indicators input";
@@ -64,7 +69,7 @@ header ul {
   opacity: 67%;
 }
 
-/* section layouts */
+/* body layout */
 .layout-grid {
   padding: 1em 2em 1em 2em;
   height: 100%;
@@ -93,8 +98,54 @@ header ul {
   grid-area: sells;
 }
 
-/* table,
+/* remove lines and borders */
+table {
+  border-collapse: collapse;
+}
+
+.table > :not(:first-child) {
+  border-top: 0;
+}
+
+/* table styles */
 th,
 tbody {
-  color: white;
-} */
+  color: var(--white);
+  letter-spacing: 1px;
+}
+tbody {
+  background: var(--dark);
+}
+
+tbody tr:nth-child(2n) {
+  background: var(--buy1);
+}
+th {
+  font-weight: 500;
+  font-size: 1em;
+}
+th,
+td {
+  border: none;
+}
+
+tbody tr {
+  background: var(--buy2);
+}
+
+tbody tr:first-of-type {
+  border-top: 2px var(--dark) solid;
+}
+
+tbody tr td {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+tbody tr td:first-child {
+  color: var(--green);
+}
+
+tbody tr td:not(:first-child) {
+  opacity: 87%;
+}
