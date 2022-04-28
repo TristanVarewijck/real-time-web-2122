@@ -1,5 +1,7 @@
-var moment = require("moment");
-console.log(moment().format());
+let wsPrices = new WebSocket(
+  "wss://stream.binance.com:9443/ws/etheur@miniTicker"
+);
+let wsTrades = new WebSocket("wss://stream.binance.com:9443/ws/etheur@trade");
 
 const pricesCleaning = (data) => {
   let price = {
@@ -33,9 +35,8 @@ function decimalsHandler(number) {
 }
 
 function timeParse(time) {
-  // parsing date into clock-time
   let date = moment(time).format("hh:mm:ss a");
   return date;
 }
 
-module.exports = { pricesCleaning, tradesCleaning };
+export { pricesCleaning, tradesCleaning, wsPrices, wsTrades };
