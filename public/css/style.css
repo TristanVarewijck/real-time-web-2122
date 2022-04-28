@@ -108,6 +108,14 @@ table {
 }
 
 /* table styles */
+thead tr th:first-child {
+  padding-left: 1.5em;
+}
+
+thead tr th {
+  font-weight: 600;
+}
+
 th,
 tbody {
   color: var(--white);
@@ -120,13 +128,14 @@ tbody {
 tbody tr:nth-child(2n) {
   background: var(--buy1);
 }
-th {
-  font-weight: 500;
-  font-size: 1em;
-}
-th,
+
 td {
   border: none;
+  width: 40%;
+}
+
+td + td {
+  width: auto;
 }
 
 tbody tr {
@@ -144,8 +153,23 @@ tbody tr td {
 
 tbody tr td:first-child {
   color: var(--green);
+  padding-left: 1.5em;
 }
 
 tbody tr td:not(:first-child) {
   opacity: 87%;
+}
+
+/* sells table styles */
+
+.sells tbody tr td:first-child {
+  color: var(--red);
+}
+
+.sells tbody tr:nth-child(2n) {
+  background: var(--sell1);
+}
+
+.sells tbody tr {
+  background: var(--sell2);
 }
