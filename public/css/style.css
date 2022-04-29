@@ -48,9 +48,23 @@ header ul {
   margin: 0;
   padding: 0;
 }
+
 .indicators {
   grid-area: indicators;
+  /* display: flex; */
 }
+
+.indicators li small {
+  opacity: 67%;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.indicators li p {
+  font-weight: 500;
+  font-size: 18px;
+}
+
 .searchInput:hover,
 .searchInput:active,
 .searchInput:focus,
@@ -71,6 +85,7 @@ header ul {
 
 /* body layout */
 .layout-grid {
+  position: relative;
   padding: 1em 2em 1em 2em;
   height: 100%;
   width: auto;
@@ -93,9 +108,13 @@ header ul {
 }
 .buys {
   grid-area: buys;
+  height: 100%;
+  overflow: hidden;
 }
 .sells {
   grid-area: sells;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* remove lines and borders */
@@ -123,7 +142,7 @@ thead tr th {
 th,
 tbody {
   color: var(--white);
-  letter-spacing: 1px;
+  letter-spacing: 0.2px;
 }
 tbody {
   background: var(--dark);
