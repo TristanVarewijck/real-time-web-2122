@@ -112,6 +112,10 @@ thead tr th:first-child {
   padding-left: 1.5em;
 }
 
+thead tr th:last-child {
+  padding-right: 1.5em;
+}
+
 thead tr th {
   font-weight: 600;
 }
@@ -154,6 +158,10 @@ tbody tr td {
 tbody tr td:first-child {
   color: var(--green);
   padding-left: 1.5em;
+}
+
+tbody tr td:last-child {
+  padding-right: 1.5em;
 }
 
 tbody tr td:not(:first-child) {
