@@ -15,7 +15,7 @@ chatio.on("connection", (socket) => {
   });
 
   socket.on("chat message", (msg) => {
-    io.emit("chat message", msg);
+    chatio.emit("chat message", msg);
   });
 });
 

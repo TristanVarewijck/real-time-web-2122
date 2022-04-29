@@ -39,8 +39,21 @@
 
     <!-- content -->
     <section class="layout-grid">
+      
       <div class="chart"></div>
-      <div class="chatroom"></div>
+
+      <div class="chatroom">
+        <ul id="chat-messages"></ul>
+<form id="chat-form" action="">
+  <input
+    type="text"
+    id="chat-input"
+    autocomplete="off"
+    placeholder="Enter a message"
+  />
+  <button type="submit" value="enter">Send</button>
+</form> 
+      </div>
       <div class="buys">
         <table class="table borderless">
           <thead>
@@ -76,27 +89,5 @@
   </body>
 </html>
 
-<!-- <p id="price">---</p>
-<section>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Price(ETH)</th>
-        <th scope="col">Amount(ETH)</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody id="insert-trades"></tbody>
-  </table>
-</section>
 
-<ul id="chat-messages"></ul>
-<form id="chat-form" action="">
-  <input
-    type="text"
-    id="chat-input"
-    autocomplete="off"
-    placeholder="Enter a message"
-  />
-  <button type="submit" value="enter">Send</button>
-</form> -->
+
