@@ -39,20 +39,37 @@
 
     <!-- content -->
     <section class="layout-grid">
-      
+
       <div class="chart"></div>
 
       <div class="chatroom">
         <ul id="chat-messages"></ul>
-<form id="chat-form" action="">
-  <input
-    type="text"
-    id="chat-input"
-    autocomplete="off"
-    placeholder="Enter a message"
-  />
-  <button type="submit" value="enter">Send</button>
-</form> 
+          <form id="chat-form" action="">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <button class="input-group-text">
+                  <img src="assets/icons/smiley.svg" alt="Send assets button">
+                </button>
+              </div>
+              <input
+              type="text"
+              id="chat-input"
+              autocomplete="off"
+              placeholder="Enter a message"
+              class="form-control"
+            />
+            <div class="input-group-append">
+              <button class="input-group-text">
+                <img src="assets/icons/paperclip.svg" alt="Send assets button">
+              </button>
+            </div>
+              <div class="input-group-append">
+                <button type="submit">
+                  <img src="assets/icons/send.svg" alt="Submit button">
+                </button>
+              </div>
+            </div> 
+          </form>
       </div>
       <div class="buys">
         <table class="table borderless">
