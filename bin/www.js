@@ -6,11 +6,17 @@ app.set("port", port);
 let server = http.createServer(app);
 const { Server } = require("socket.io");
 const chatio = new Server(server);
+let count = 0;
 
 // chat app connection (my server user connection)
 chatio.on("connection", (socket) => {
+  count++;
+  chatio.emit("userCount", count);
   console.log("a user connected");
+
   socket.on("disconnect", () => {
+    count--;
+    chatio.emit("userCount", count);
     console.log("a user disconnected :(");
   });
 
