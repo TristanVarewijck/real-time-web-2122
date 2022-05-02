@@ -10,9 +10,14 @@ let count = 0;
 
 // chat app connection (my server user connection)
 chatio.on("connection", (socket) => {
+  // rooms
+  console.log(chatio.sockets.adapter.rooms);
   count++;
   chatio.emit("userCount", count);
-  console.log("a user connected");
+  socket.on("username", (name) => {
+    chatio.emit("username", name);
+    console.log(name + " connected to room");
+  });
 
   socket.on("disconnect", () => {
     count--;

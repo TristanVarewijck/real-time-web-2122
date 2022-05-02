@@ -1,7 +1,20 @@
+let coinID = "eth";
+
+// const searchForm = document.getElementById("searchForm");
+// const searchInput = document.getElementById("searchInput");
+
+// searchForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   coinID = searchInput.value;
+//   console.log(coinID);
+// });
+
 let wsPrices = new WebSocket(
-  "wss://stream.binance.com:9443/ws/etheur@miniTicker"
+  `wss://stream.binance.com:9443/ws/${coinID}eur@miniTicker`
 );
-let wsTrades = new WebSocket("wss://stream.binance.com:9443/ws/etheur@trade");
+let wsTrades = new WebSocket(
+  `wss://stream.binance.com:9443/ws/${coinID}eur@trade`
+);
 
 const pricesCleaning = (data) => {
   let price = {

@@ -33,15 +33,41 @@
           </p>
         </li>
       </ul>
-      <form action="" autocomplete="off"></form>
-      <input class="searchInput" placeholder="Enter CoinID" name="searchInput"></input>
+      <form action="/token" method="GET" autocomplete="off" id="searchForm">
+        <input class="searchInput" id="searchInput" placeholder="Enter CoinID" name="token"></input>
+      </form>
+    
     </header>
 
     <!-- content -->
     <section class="layout-grid">
-      <div class="chart"></div>
+      <div class="chart">
+        <table class="table borderless">
+          <thead>
+            <tr>
+              <th scope="col">Live chart</th>
+              <th scope="col">24h</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          </table>
+      </div>
 
       <div class="chatroom">
+
+        <div class="chat-overlay" id="chat-overlay">
+          <h2>Fill in a display name<br>before chatting</h2>
+          <form action="" id="user-form">
+            <input
+            type="text"
+            id="user-input"
+            autocomplete="off"
+            placeholder="Enter display name"
+            class="form-control"
+          />
+          </form>
+        </div>
+
         <table class="table borderless">
         <thead>
           <tr>
@@ -60,18 +86,19 @@
             </div> 
           </th>
           </tr>
-
-
-        
         </thead>
         </table>
 
-       
-        <ul id="chat-messages">
+        <div class="box-of-messages">
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
           </div>
-        </ul>
+
+          <ul id="chat-messages">
+            <p id="joined-user"></p>
+          </ul>
+        </div>
+       
           <form id="chat-form" action="">
             <div class="input-group">
               <div class="input-group-prepend">
