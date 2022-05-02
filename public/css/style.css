@@ -10,7 +10,7 @@ html {
 :root {
   --dark: #222222;
   --gray: #313131;
-  --lightGray: #c4c4c4;
+  --lightGray: #3c3c3c;
   --white: #ffffff;
   --blue: #5cfdd6;
   --green: #21df96;
@@ -236,6 +236,15 @@ tbody tr td:not(:first-child) {
   bottom: 58%;
   border-radius: 50px;
   border: var(--white) solid 1.5px;
+  display: flex;
+  align-items: center;
+}
+
+.chatroom .chat-overlay form p {
+  margin: 0;
+  opacity: 55%;
+  font-size: 14px;
+  padding-right: 6px;
 }
 
 .chatroom .chat-overlay form input {
@@ -262,7 +271,34 @@ tbody tr td:not(:first-child) {
 
 .chatroom ul {
   list-style-type: none;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  width: 100%;
 }
+
+.chatroom ul li {
+  background: var(--lightGray);
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  border-radius: 0px 5px 5px 5px;
+  width: fit-content;
+  margin-bottom: 15px;
+}
+
+.chatroom ul .joined-user {
+  background: none;
+  color: rgb(160, 160, 160);
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .chatroom form {
   position: absolute;
   bottom: 10%;

@@ -23,6 +23,11 @@ chatio.on("connection", (socket) => {
     count--;
     chatio.emit("userCount", count);
     console.log("a user disconnected :(");
+
+    socket.on("username", (name) => {
+      chatio.emit("username", name);
+      console.log(name + " connected to room");
+    });
   });
 
   socket.on("chat message", (msg) => {

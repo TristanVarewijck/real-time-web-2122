@@ -10,8 +10,9 @@ let users = document.getElementById("userCount");
 let chatOverlay = document.getElementById("chat-overlay");
 let usernameForm = document.getElementById("user-form");
 let userInput = document.getElementById("user-input");
+let characterCounter = document.getElementById("chaCount");
 
-// userForm
+// user input
 usernameForm.addEventListener("submit", function (e) {
   e.preventDefault();
   socket.emit("username", userInput.value);
@@ -19,12 +20,22 @@ usernameForm.addEventListener("submit", function (e) {
   userInput.value = "";
 });
 
+userInput.addEventListener("keyup", () => {
+  let maxCha = 16;
+  let currentLength = userInput.value.length;
+  if (currentLength >= maxCha) {
+    userInput.value = userInput.value.substring(0, maxCha);
+  } else {
+    characterCounter.innerHTML = maxCha - currentLength - 1;
+  }
+});
+
 // userName
 socket.on("username", function (name) {
   console.log(name);
   let joinedUser = document.createElement("li");
   joinedUser.className = "joined-user";
-  joinedUser.textContent = name + ":" + " joined the room";
+  joinedUser.textContent = name + ": Joined";
   chatMessages.appendChild(joinedUser);
 });
 

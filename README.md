@@ -275,3 +275,8 @@ Your efforts will be graded using a single point rubric (see below). You will ha
 <!-- We all stand on the shoulders of giants, please link all the sources you used in to create this project. -->
 
 <!-- How about a license here? When in doubt use GNU GPL v3. 📜  -->
+
+## ToDoList
+
+1. chat messages styles
+2.
