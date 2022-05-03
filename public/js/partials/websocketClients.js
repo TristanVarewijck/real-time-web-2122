@@ -1,3 +1,11 @@
+let searchForm = document.getElementById("searchForm");
+let searchInput = document.getElementById("searchInput");
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("coinID: " + searchInput.value);
+});
+
 let coinID = "eth";
 
 let wsPrices = new WebSocket(
