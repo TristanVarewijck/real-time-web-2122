@@ -6,32 +6,48 @@ app.set("port", port);
 let server = http.createServer(app);
 const { Server } = require("socket.io");
 const chatio = new Server(server);
-let count = 0;
+let users = [];
 
-// chat app connection (my server user connection)
 chatio.on("connection", (socket) => {
-  // rooms
-  console.log(chatio.sockets.adapter.rooms);
-  count++;
-  chatio.emit("userCount", count);
-  socket.on("username", (name) => {
-    chatio.emit("username", name);
-    console.log(name + " connected to room");
-  });
+  socket.on("joinRoom", (room) => {
+    // push user to a global users array with different rooms connected to it
+    const user = {
+      id: socket.id,
+      room: room,
+    };
+    users.push(user);
+    // make the socket join the room with the attached room name (from url)
+    socket.join(user.room);
 
-  socket.on("disconnect", () => {
-    count--;
-    chatio.emit("userCount", count);
-    console.log("a user disconnected :(");
+    // filter the user in the current room
+    // send the users inside this room to the client
+    let roomUsers = users.filter((user) => user.room === room);
+    chatio.to(user.room).emit("userCount", roomUsers.length);
 
+    // listening to username
     socket.on("username", (name) => {
-      chatio.emit("username", name);
+      chatio.to(room).emit("username", name);
       console.log(name + " connected to room");
+    });
+
+    // handle the chat messages
+    socket.on("chat message", (msg) => {
+      chatio.to(room).emit("chat message", msg);
     });
   });
 
-  socket.on("chat message", (msg) => {
-    chatio.emit("chat message", msg);
+  socket.on("disconnect", (room) => {
+    // socket.leave(room);
+
+    // const user = userLeave(socket.id);
+
+    // if (user) {
+    //   chatio.to(user.room).emit("username", "left the room");
+    // }
+
+    // count--;
+    // chatio.emit("userCount", count);
+    console.log("a user disconnected :(");
   });
 });
 

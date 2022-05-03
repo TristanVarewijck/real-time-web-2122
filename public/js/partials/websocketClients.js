@@ -1,14 +1,5 @@
 let coinID = "eth";
 
-// const searchForm = document.getElementById("searchForm");
-// const searchInput = document.getElementById("searchInput");
-
-// searchForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   coinID = searchInput.value;
-//   console.log(coinID);
-// });
-
 let wsPrices = new WebSocket(
   `wss://stream.binance.com:9443/ws/${coinID}eur@miniTicker`
 );

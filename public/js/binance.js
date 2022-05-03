@@ -11,7 +11,6 @@ wsPrices.onopen = (event) => {
 // live-stream prices on "/"
 wsPrices.onmessage = (event) => {
   let price = pricesCleaning(JSON.parse(event.data));
-  console.log(price);
 
   let priceHolder = document.querySelectorAll(".indicators li p");
   // priceholders

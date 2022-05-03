@@ -30,9 +30,15 @@ userInput.addEventListener("keyup", () => {
   }
 });
 
-// userName
+// create rooms depending on the url
+const { room } = Qs.parse(location.search, {
+  ignoreQueryPrefix: true,
+});
+
+socket.emit("joinRoom", room);
+
+// catch the username
 socket.on("username", function (name) {
-  console.log(name);
   let joinedUser = document.createElement("li");
   joinedUser.className = "joined-user";
   joinedUser.textContent = name + ": Joined";
@@ -48,14 +54,16 @@ chatForm.addEventListener("submit", function (e) {
   }
 });
 
-// chatMessages
+// catch the messages
 socket.on("chat message", function (msg) {
+  console.log(socket.username);
   let messageBox = document.createElement("li");
   messageBox.textContent = msg;
   chatMessages.appendChild(messageBox);
 });
 
-// userCount
+// catch the user count
 socket.on("userCount", function (count) {
+  console.log(count);
   users.innerHTML = count;
 });
