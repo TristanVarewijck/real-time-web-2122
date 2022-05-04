@@ -13,6 +13,8 @@ let userInput = document.getElementById("user-input");
 let characterCounter = document.getElementById("chaCount");
 
 // user input
+
+// set a user in a room when you submit the username
 usernameForm.addEventListener("submit", function (e) {
   e.preventDefault();
   socket.emit("username", userInput.value);
@@ -66,4 +68,11 @@ socket.on("chat message", function (msg) {
 socket.on("userCount", function (count) {
   console.log(count);
   users.innerHTML = count;
+});
+
+socket.on("user-left", function (user) {
+  let leftUser = document.createElement("li");
+  leftUser.className = "joined-user";
+  leftUser.textContent = user.username + ": Left";
+  chatMessages.appendChild(leftUser);
 });

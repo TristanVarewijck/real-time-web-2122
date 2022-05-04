@@ -5,6 +5,7 @@ import {
   tradesCleaning,
 } from "./partials/websocketClients.js";
 
+console.log(wsPrices);
 wsPrices.onopen = (event) => {
   console.log("connected to prices server");
 };

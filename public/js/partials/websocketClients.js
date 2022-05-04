@@ -1,10 +1,9 @@
 let searchForm = document.getElementById("searchForm");
 let searchInput = document.getElementById("searchInput");
 
-searchForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("coinID: " + searchInput.value);
-});
+// searchForm.addEventListener("submit", (e) => {
+
+// });
 
 let coinID = "eth";
 

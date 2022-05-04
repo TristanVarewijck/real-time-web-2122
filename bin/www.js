@@ -6,6 +6,8 @@ app.set("port", port);
 let server = http.createServer(app);
 const { Server } = require("socket.io");
 const chatio = new Server(server);
+
+// array with all users
 let users = [];
 
 chatio.on("connection", (socket) => {
@@ -19,7 +21,6 @@ chatio.on("connection", (socket) => {
     // make the socket join the room with the attached room name (from url)
     socket.join(user.room);
 
-    // filter the user in the current room
     // send the users inside this room to the client
     let roomUsers = users.filter((user) => user.room === room);
     chatio.to(user.room).emit("userCount", roomUsers.length);
@@ -27,7 +28,7 @@ chatio.on("connection", (socket) => {
     // listening to username
     socket.on("username", (name) => {
       chatio.to(room).emit("username", name);
-      console.log(name + " connected to room");
+      user.username = name;
     });
 
     // handle the chat messages
@@ -36,18 +37,27 @@ chatio.on("connection", (socket) => {
     });
   });
 
-  socket.on("disconnect", (room) => {
-    // socket.leave(room);
+  // if user disconnects
+  socket.on("disconnect", () => {
+    // filter out the user that is leaving
+    const user = userLeave(socket.id);
+    function userLeave(id) {
+      const index = users.findIndex((user) => user.id === id);
+      // remove this user from the users array and replace it with nothing
+      if (index !== -1) {
+        return users.splice(index, 1)[0];
+      }
+    }
 
-    // const user = userLeave(socket.id);
-
-    // if (user) {
-    //   chatio.to(user.room).emit("username", "left the room");
-    // }
-
-    // count--;
-    // chatio.emit("userCount", count);
-    console.log("a user disconnected :(");
+    // if the user joined the room with an user name send a "leave message"
+    if (user?.username !== undefined) {
+      chatio.to(user.room).emit("user-left", user);
+      let roomUsers = users.filter((item) => item.room === user.room);
+      chatio.to(user.room).emit("userCount", roomUsers.length);
+    } else if (user) {
+      let roomUsers = users.filter((item) => item.room === user.room);
+      chatio.to(user.room).emit("userCount", roomUsers.length);
+    }
   });
 });
 
