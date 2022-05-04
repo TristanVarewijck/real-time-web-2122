@@ -12,6 +12,8 @@ let users = [];
 
 chatio.on("connection", (socket) => {
   socket.on("joinRoom", (room) => {
+    // result
+
     // push user to a global users array with different rooms connected to it
     const user = {
       id: socket.id,
@@ -28,6 +30,8 @@ chatio.on("connection", (socket) => {
     // listening to username
     socket.on("username", (name) => {
       chatio.to(room).emit("username", name);
+
+      // make new key to user when username is filled in
       user.username = name;
     });
 
@@ -37,7 +41,6 @@ chatio.on("connection", (socket) => {
     });
   });
 
-  // if user disconnects
   socket.on("disconnect", () => {
     // filter out the user that is leaving
     const user = userLeave(socket.id);
