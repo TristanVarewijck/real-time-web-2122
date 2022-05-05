@@ -11,14 +11,12 @@ let chatOverlay = document.getElementById("chat-overlay");
 let usernameForm = document.getElementById("user-form");
 let userInput = document.getElementById("user-input");
 let characterCounter = document.getElementById("chaCount");
-
-// set a user in a room when you submit the username
-usernameForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  socket.emit("username", userInput.value);
-  chatOverlay.remove();
-  userInput.value = "";
+const { room } = Qs.parse(location.search, {
+  ignoreQueryPrefix: true,
 });
+
+// set user inside the room according to url
+socket.emit("joinRoom", room);
 
 userInput.addEventListener("keyup", () => {
   let maxCha = 16;
@@ -30,12 +28,13 @@ userInput.addEventListener("keyup", () => {
   }
 });
 
-// create rooms depending on the url
-const { room } = Qs.parse(location.search, {
-  ignoreQueryPrefix: true,
+// set a user in a room when you submit the username
+usernameForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  socket.emit("username", userInput.value);
+  chatOverlay.remove();
+  userInput.value = "";
 });
-
-socket.emit("joinRoom", room);
 
 // catch the username
 socket.on("username", function (name) {
@@ -59,14 +58,16 @@ socket.on("chat message", function (msg, user) {
   addNewMessage(msg, user);
 });
 
+// format the chatmessages
 const addNewMessage = (msg, user) => {
   const time = new Date();
   const timeStamp = time.getTime();
   const formattedTime = moment(timeStamp).format("hh:mm:ss");
+  const username = user.username;
 
   const receivedMsg = `
-  <div>
-  <span>${user.username}:</span><span>${" " + formattedTime}</span>
+  <div class="received">
+  <span>${username}</span><span>${": " + formattedTime}</span>
   <p>${msg}</p>
   </div>`;
 
@@ -87,6 +88,7 @@ socket.on("userCount", function (count) {
   users.innerHTML = count;
 });
 
+// catch when a user leaves the room
 socket.on("user-left", function (user) {
   let leftUser = document.createElement("li");
   leftUser.className = "joined-user";
