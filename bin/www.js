@@ -37,7 +37,7 @@ chatio.on("connection", (socket) => {
 
     // handle the chat messages
     socket.on("chat message", (msg) => {
-      chatio.to(room).emit("chat message", msg);
+      chatio.to(room).emit("chat message", msg, user);
     });
   });
 

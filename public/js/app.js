@@ -12,8 +12,6 @@ let usernameForm = document.getElementById("user-form");
 let userInput = document.getElementById("user-input");
 let characterCounter = document.getElementById("chaCount");
 
-// user input
-
 // set a user in a room when you submit the username
 usernameForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -57,12 +55,31 @@ chatForm.addEventListener("submit", function (e) {
 });
 
 // catch the messages
-socket.on("chat message", function (msg) {
-  console.log(socket.username);
-  let messageBox = document.createElement("li");
-  messageBox.textContent = msg;
-  chatMessages.appendChild(messageBox);
+socket.on("chat message", function (msg, user) {
+  addNewMessage(msg, user);
 });
+
+const addNewMessage = (msg, user) => {
+  const time = new Date();
+  const timeStamp = time.getTime();
+  const formattedTime = moment(timeStamp).format("hh:mm:ss");
+
+  const receivedMsg = `
+  <div>
+  <span>${user.username}:</span><span>${" " + formattedTime}</span>
+  <p>${msg}</p>
+  </div>`;
+
+  const myMsg = `
+  <div class="send_message>
+  <span>${formattedTime}</span>
+  <p>${msg}</p>
+  </div>`;
+
+  let message = document.createElement("li");
+  message.innerHTML = receivedMsg;
+  chatMessages.appendChild(message);
+};
 
 // catch the user count
 socket.on("userCount", function (count) {

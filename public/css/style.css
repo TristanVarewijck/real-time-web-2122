@@ -276,7 +276,7 @@ tbody tr td:not(:first-child) {
   width: 100%;
 }
 
-.chatroom ul li {
+.chatroom #chat-messages li p {
   background: var(--lightGray);
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -285,6 +285,12 @@ tbody tr td:not(:first-child) {
   border-radius: 0px 5px 5px 5px;
   width: fit-content;
   margin-bottom: 15px;
+  margin-top: 6px;
+}
+
+.chatroom #chat-messages li span {
+  font-size: 12px;
+  margin-bottom: 0.5em;
 }
 
 .chatroom ul .joined-user {
