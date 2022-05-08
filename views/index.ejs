@@ -5,35 +5,27 @@
     <header>
       <%- include('header/prices'); -%> <%- include('header/searchForm'); -%>
     </header>
-
-    <!-- content -->
     <section class="layout-grid">
       <div class="chart"><%- include('chart'); -%></div>
-
       <div class="chatroom">
         <!-- overlay -->
         <%- include('chatroom/overlay'); -%>
         <!-- header of the chatroom -->
         <%- include('chatroom/nav'); -%>
-
-        <!-- everything below the header -->
         <div class="box-of-messages">
           <%- include('chatroom/chatbox/roomsAccordion'); -%>
+          <!--  -->
+          <%- include('chatroom/chatbox/usersAccordion'); -%>
         </div>
-
         <!-- The messages will append here! -->
         <%- include('chatroom/chatbox/messageBox'); -%>
-
         <form id="chat-form" action="">
           <%- include('chatroom/chatbox/chatForm'); -%>
         </form>
       </div>
-
       <div class="buys"><%- include('buys'); -%></div>
-
       <div class="sells"><%- include('sells'); -%></div>
     </section>
-
     <script src="/socket.io/socket.io.js"></script>
   </body>
 </html>

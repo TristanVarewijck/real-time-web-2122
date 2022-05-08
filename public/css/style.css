@@ -385,11 +385,12 @@ span::first-letter {
 }
 
 .chatroom table img {
-  margin-left: 4px;
+  margin-left: 6px;
+  margin-right: 4px;
 }
 
-.chatroom table thead tr th:nth-of-type(3) button {
-  background-color: var(--gray);
+.chatroom table thead tr th button {
+  background: none !important;
   padding: 0;
   color: var(--white);
   font-size: 16px;
@@ -474,6 +475,11 @@ span::first-letter {
 
 .accordion-button.collapsed {
   background: white;
+}
+
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: 0;
+  color: white;
 }
 
 .accordion-button.collapsed::after,
