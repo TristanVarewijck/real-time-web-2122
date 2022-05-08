@@ -2,236 +2,38 @@
 <html lang="en">
   <%- include('layout'); -%>
   <body>
-    <!-- header -->
     <header>
-      <ul class="indicators">
-        <li id="name">
-          <p>
-            <!-- insert name -->
-          </p>
-        </li>
-        <li id="price">
-          <small>Price</small>
-          <p>
-          <!-- insert price -->
-          </p>
-        </li>
-        <li >
-          <small>Open</small>
-          <p>
-            <!-- insert 24h -->
-          </p>
-        </li>
-        <li id="high">
-          <small>High</small>
-          <p>  <!-- insert high --></p>
-        </li>
-        <li id="low">
-          <small>Low</small>
-          <p>
-            <!-- insert low -->
-          </p>
-        </li>
-      </ul>
-      <form action="/" method="GET" autocomplete="off" id="searchForm">
-        <input class="searchInput" id="searchInput" placeholder="Enter CoinID" name="room"></input>
-      </form>
-    
+      <%- include('header/prices'); -%> <%- include('header/searchForm'); -%>
     </header>
 
     <!-- content -->
     <section class="layout-grid">
-      <div class="chart">
-        <table class="table borderless">
-          <thead>
-            <tr>
-              <th scope="col">Live chart</th>
-              <th scope="col">24h</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          </table>
-      </div>
+      <div class="chart"><%- include('chart'); -%></div>
 
       <div class="chatroom">
+        <!-- overlay -->
+        <%- include('chatroom/overlay'); -%>
+        <!-- header of the chatroom -->
+        <%- include('chatroom/nav'); -%>
 
-        <div class="chat-overlay" id="chat-overlay">
-          <h2>Fill in a display name<br>before chatting</h2>
-          <form action="" id="user-form">
-            <input
-            type="text"
-            id="user-input"
-            autocomplete="off"
-            placeholder="Enter display name"
-            class="form-control"
-            maxlength="15"
-            required
-          />
-          <p><span id="chaCount">15</span>/15</p>
-          </form>
-        </div>
-
-        <table class="table borderless">
-        <thead>
-          <tr>
-          <th scope="col">Chat</th>
-          <th scope="col">
-            <span id="userCount"> <!-- userCount --> </span>
-            <img src="assets/icons/online.svg" alt="people icon">
-          </th>
-          <th scope="col"> 
-             <!--hot rooms accordion   -->
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Hot rooms
-                </button>
-            </div> 
-          </th>
-          </tr>
-        </thead>
-        </table>
-
+        <!-- everything below the header -->
         <div class="box-of-messages">
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <div class="title-box">
-                <h3>Hot rooms</h3>
-                <img src="assets/icons/fire.svg" alt="">
-              </div>
-
-              <ul>
-                <li>
-                  <a href="#" target="_blank">
-                  <div>
-                    <p>WAG</p>
-                  </div>
-
-                  <div>
-                  <span>12</span>
-                  <img src="assets/icons/online.svg" alt="people icon">
-                  </div>
-                </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                  <div>
-                    <p>VLX</p>
-                  </div>
-
-                  <div>
-                  <span>9</span>
-                  <img src="assets/icons/online.svg" alt="people icon">
-                  </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                  <div>
-                    <p>ETH</p>
-                  </div>
-
-                  <div>
-                  <span>6</span>
-                  <img src="assets/icons/online.svg" alt="people icon">
-                  </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                  <div>
-                    <p>BTC</p>
-                  </div>
-
-                  <div>
-                  <span>3</span>
-                  <img src="assets/icons/online.svg" alt="people icon">
-                  </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                  <div>
-                    <p>APE</p>
-                  </div>
-
-                  <div>
-                  <span> 1</span>
-                  <img src="assets/icons/online.svg" alt="people icon">
-                  </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <ul id="chat-messages">
-            <p id="joined-user"></p>
-          </ul>
+          <%- include('chatroom/chatbox/roomsAccordion'); -%>
         </div>
-       
-          <form id="chat-form" action="">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <button class="input-group-text">
-                  <img src="assets/icons/smiley.svg" alt="Send assets button">
-                </button>
-              </div>
-              <input
-              type="text"
-              id="chat-input"
-              autocomplete="off"
-              placeholder="Enter a message"
-              class="form-control"
-            />
-            <div class="input-group-append">
-              <button class="input-group-text">
-                <img src="assets/icons/paperclip.svg" alt="Send assets button">
-              </button>
-            </div>
-              <div class="input-group-append">
-                <button type="submit">
-                  <img src="assets/icons/send.svg" alt="Submit button">
-                </button>
-              </div>
-            </div> 
-          </form>
+
+        <!-- The messages will append here! -->
+        <%- include('chatroom/chatbox/messageBox'); -%>
+
+        <form id="chat-form" action="">
+          <%- include('chatroom/chatbox/chatForm'); -%>
+        </form>
       </div>
 
-      <div class="buys">
-        <table class="table borderless">
-          <thead>
-            <tr>
-              <th scope="col">Price</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Time</th>
-            </tr>
-          </thead>
-          <tbody>
-              <!-- new rows  -->
-          </tbody>
-        </table>
-      </div>
+      <div class="buys"><%- include('buys'); -%></div>
 
-      <div class="sells">
-        <table class="table borderless">
-          <thead>
-            <tr>
-              <th scope="col">Price</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Time</th>
-            </tr>
-          </thead>
-          <tbody>
-              <!-- new rows  -->
-          </tbody>
-        </table>
-      </div>
+      <div class="sells"><%- include('sells'); -%></div>
     </section>
 
     <script src="/socket.io/socket.io.js"></script>
   </body>
 </html>
-
-
-

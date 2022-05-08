@@ -6,21 +6,17 @@ app.set("port", port);
 let server = http.createServer(app);
 const { Server } = require("socket.io");
 const chatio = new Server(server);
-
 // array with all users
 let users = [];
 
 chatio.on("connection", (socket) => {
   socket.on("joinRoom", (room) => {
-    // result
-
     // push user to a global users array with different rooms connected to it
     const user = {
       id: socket.id,
       room: room,
     };
     users.push(user);
-    // make the socket join the room with the attached room name (from url)
     socket.join(user.room);
 
     // send the users inside this room to the client
@@ -30,8 +26,6 @@ chatio.on("connection", (socket) => {
     // listening to username
     socket.on("username", (name) => {
       chatio.to(room).emit("username", name);
-
-      // make new key to user when username is filled in
       user.username = name;
     });
 
@@ -52,7 +46,6 @@ chatio.on("connection", (socket) => {
       }
     }
 
-    // if the user joined the room with an user name send a "leave message"
     if (user?.username !== undefined) {
       chatio.to(user.room).emit("user-left", user);
       let roomUsers = users.filter((item) => item.room === user.room);
