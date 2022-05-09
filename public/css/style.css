@@ -424,6 +424,35 @@ span::first-letter {
   padding: 0;
 }
 
+.accordion-body .userGrid li div:first-of-type {
+  background: none;
+  border-radius: none;
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  box-shadow: none;
+  margin-bottom: 1em;
+  transition: 200ms ease-in-out;
+}
+
+.accordion-body .userGrid li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion-body .userGrid li div p {
+  width: 100%;
+  margin-right: 1em;
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+.accordion-body .userGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 .accordion-body ul li {
   display: flex;
   border-radius: none;

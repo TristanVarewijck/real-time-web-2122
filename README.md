@@ -190,6 +190,29 @@ Een manier om dit te voorkomen is om bijvoorbeeld een character limit te zetten.
 
 De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of Twitter waar er data verkeer over sockets wordt verstuurd te gelijker tijd. Natuurlijk kan ik dit ook toepassen aan mijn applicatie want het kan zeker geen kwaad.
 
+## MOSCOW - tabel
+
+// 9 mei 2022
+
+1. Must have
+
+   - list of users
+   - messages of user styled differently
+   - data changed on search
+
+2. Should have
+
+   - See users in all groups
+   - Private messaging
+
+3. Could have
+
+   - D3 realtime candle chart
+
+4. Won't have
+
+   - live trading
+
 ## Tools
 
 - socket.io
