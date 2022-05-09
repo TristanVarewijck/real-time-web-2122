@@ -77,7 +77,7 @@ const addNewMessage = (msg, user) => {
   </div>`;
 
   let message = document.createElement("li");
-  message.innerHTML = receivedMsg;
+  message.innerHTML += user === username ? myMsg : receivedMsg;
   chatMessages.appendChild(message);
 };
 
