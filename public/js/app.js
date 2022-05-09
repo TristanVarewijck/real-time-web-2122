@@ -38,10 +38,10 @@ usernameForm.addEventListener("submit", function (e) {
   userInput.value = "";
 });
 
-socket.on("username", function (user) {
+socket.on("username", function (name) {
   let joinedUser = document.createElement("li");
   joinedUser.className = "joined-user";
-  joinedUser.textContent = user.username + ": Joined";
+  joinedUser.textContent = name + ": Joined";
   chatMessages.appendChild(joinedUser);
 });
 

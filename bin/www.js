@@ -27,6 +27,8 @@ chatio.on("connection", (socket) => {
       user.username = name;
       users.push(user);
 
+      chatio.to(user.room).emit("username", name);
+
       roomUsers = users.filter((user) => user.room === room);
       chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
     });
