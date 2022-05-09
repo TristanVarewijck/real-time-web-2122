@@ -7,7 +7,7 @@ let server = http.createServer(app);
 const { Server } = require("socket.io");
 const chatio = new Server(server);
 // array with all users
-let users = [];
+const users = [];
 
 chatio.on("connection", (socket) => {
   socket.on("joinRoom", (room) => {
@@ -16,18 +16,24 @@ chatio.on("connection", (socket) => {
       id: socket.id,
       room: room,
     };
-    users.push(user);
+
     socket.join(user.room);
 
     // send the users inside this room to the client
     let roomUsers = users.filter((user) => user.room === room);
     chatio.to(user.room).emit("userCount", roomUsers.length);
 
-    // listening to username
     socket.on("username", (name) => {
-      chatio.to(room).emit("username", name);
       user.username = name;
+      users.push(user);
+
+      roomUsers = users.filter((user) => user.room === room);
+      chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
     });
+
+    if (user?.username !== undefined) {
+      console.log("myname", user.username);
+    }
 
     // handle the chat messages
     socket.on("chat message", (msg) => {
@@ -49,10 +55,10 @@ chatio.on("connection", (socket) => {
     if (user?.username !== undefined) {
       chatio.to(user.room).emit("user-left", user);
       let roomUsers = users.filter((item) => item.room === user.room);
-      chatio.to(user.room).emit("userCount", roomUsers.length);
+      chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
     } else if (user) {
       let roomUsers = users.filter((item) => item.room === user.room);
-      chatio.to(user.room).emit("userCount", roomUsers.length);
+      chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
     }
   });
 });

@@ -1,16 +1,18 @@
 let socket = io();
 
-// chatform
-let chatForm = document.getElementById("chat-form");
-let chatInput = document.getElementById("chat-input");
-let chatMessages = document.getElementById("chat-messages");
-let users = document.getElementById("userCount");
+const chatForm = document.getElementById("chat-form");
+const chatInput = document.getElementById("chat-input");
+const chatMessages = document.getElementById("chat-messages");
+const usersCount = document.getElementById("userCount");
 
-// username form
-let chatOverlay = document.getElementById("chat-overlay");
-let usernameForm = document.getElementById("user-form");
-let userInput = document.getElementById("user-input");
-let characterCounter = document.getElementById("chaCount");
+const chatOverlay = document.getElementById("chat-overlay");
+const usernameForm = document.getElementById("user-form");
+const userInput = document.getElementById("user-input");
+const characterCounter = document.getElementById("chaCount");
+
+const userList = document.querySelector(".userGrid");
+let users = [];
+
 const { room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
@@ -36,15 +38,13 @@ usernameForm.addEventListener("submit", function (e) {
   userInput.value = "";
 });
 
-// catch the username
-socket.on("username", function (name) {
+socket.on("username", function (user) {
   let joinedUser = document.createElement("li");
   joinedUser.className = "joined-user";
-  joinedUser.textContent = name + ": Joined";
+  joinedUser.textContent = user.username + ": Joined";
   chatMessages.appendChild(joinedUser);
 });
 
-// chatform
 chatForm.addEventListener("submit", function (e) {
   e.preventDefault();
   if (chatInput.value) {
@@ -53,7 +53,6 @@ chatForm.addEventListener("submit", function (e) {
   }
 });
 
-// catch the messages
 socket.on("chat message", function (msg, user) {
   addNewMessage(msg, user);
 });
@@ -82,10 +81,32 @@ const addNewMessage = (msg, user) => {
   chatMessages.appendChild(message);
 };
 
-// catch the user count
-socket.on("userCount", function (count) {
-  console.log(count);
-  users.innerHTML = count;
+socket.on("userCount", function (count, users) {
+  usersCount.innerHTML = count;
+
+  if (users !== undefined) {
+    while (userList.firstChild) {
+      userList.removeChild(userList.lastChild);
+    }
+
+    users.forEach((user) => {
+      const newUser = `
+    <li>
+    <div>
+      <img src="assets/icons/dot.svg" alt="online-dot" />
+      <p>${user.username}</p>
+    </div>
+  
+    <a href="#">
+      <img src="assets/icons/privateMessage.svg" alt="message-icon" />
+    </a>
+    </li>`;
+
+      let userItem = document.createElement("li");
+      userItem.innerHTML = newUser;
+      userList.appendChild(userItem);
+    });
+  }
 });
 
 // catch when a user leaves the room
