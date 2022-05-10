@@ -1,9 +1,5 @@
 # real-time Crypto Ticker
 
-## Crypto Ticker Concept Design :pencil2:
-
-![TechDefined-concept-design](https://github.com/TristanVarewijck/TechDefined/blob/main/assets/images/concept-display.png)
-
 ## Live Demo :clapper:
 
 See the latest updated demo here:
@@ -194,7 +190,7 @@ De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of 
 
 Hieronder in de diagram zie je hoe de data wordt verstuurd van server naar client en welke data modellen aan te pas komen:
 
-<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/data-cycle.png" width="600px"/>
+<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/data-cycle.png"/>
 
 ## MOSCOW - tabel
 
