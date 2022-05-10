@@ -10,8 +10,9 @@ const chatio = new Server(server);
 const users = [];
 
 chatio.on("connection", (socket) => {
+  console.log(chatio.sockets.adapter.rooms);
+  console.log(chatio.sockets.adapter["btc"]);
   socket.on("joinRoom", (room) => {
-    console.log(chatio.sockets.adapter.rooms);
     // push user to a global users array with different rooms connected to it
     const user = {
       id: socket.id,

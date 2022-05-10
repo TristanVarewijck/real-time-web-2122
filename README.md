@@ -190,7 +190,15 @@ Een manier om dit te voorkomen is om bijvoorbeeld een character limit te zetten.
 
 De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of Twitter waar er data verkeer over sockets wordt verstuurd te gelijker tijd. Natuurlijk kan ik dit ook toepassen aan mijn applicatie want het kan zeker geen kwaad.
 
+### data cycle diagram
+
+Hieronder in de diagram zie je hoe de data wordt verstuurd van server naar client en welke data modellen aan te pas komen:
+
+<img src="https://github.com/TristanVarewijck/real-time-web-2122/blob/main/public/assets/readme/data-cycle.png" width="600px"/>
+
 ## MOSCOW - tabel
+
+Hieronder zie je de functies of addons en de priority ervan.
 
 // 9 mei 2022
 
@@ -204,9 +212,11 @@ De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of 
 
    - See users in all groups
    - Private messaging
+   - going up or going down - poll
 
 3. Could have
 
+   - database with messages
    - D3 realtime candle chart
 
 4. Won't have
@@ -218,46 +228,6 @@ De importance van dit onderwerp is vooral hoog bij grote apps zoals Instgram of 
 - socket.io
 - ejs
 - express.js
-
-## Usage
-
-For using this app yourself you need to follow the following steps:
-
-### 1. Clone Repo locally
-
-```
-git clone https://github.com/TristanVarewijck/TechDefined.git
-```
-
-### 2. Connect your API key
-
-If you want to connect with the API you have to fill in your own personal {apiKey} wich you can get here: <br>
-[Get NewsAPI apiKey](https://newsapi.org/).
-
-```
-https://newsapi.org/v2/everything?q=${input.value}&sortBy=publishedAt&language=en&pageSize=100&apiKey=${apiKey}
-https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=100&apiKey=${apiKey}
-```
-
-### 3. Install dependencies
-
-Install to need dependencies for using this project.
-
-```
-npm i
-```
-
-### 4. Run on Localhost
-
-Because i am using the free version of this API your need to run it on your localhost to test it. If you want to move further with this app make sure to check out the [pricing scheme](https://newsapi.org/pricing) of NewsAPI.
-
-For easily running this project on your localhost you can use the command:
-
-```
-npm start
-```
-
-### Thats it! :smile:
 
 ## Grading
 
@@ -298,8 +268,3 @@ Your efforts will be graded using a single point rubric (see below). You will ha
 <!-- We all stand on the shoulders of giants, please link all the sources you used in to create this project. -->
 
 <!-- How about a license here? When in doubt use GNU GPL v3. 📜  -->
-
-## ToDoList
-
-1. chat messages styles
-2.
