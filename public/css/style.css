@@ -283,17 +283,28 @@ tbody tr td:not(:first-child) {
   border-radius: 0px 5px 5px 5px;
   width: fit-content;
   margin-bottom: 15px;
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 .chatroom #chat-messages li span {
   font-size: 12px;
-  margin-bottom: 0.5em;
   display: inline-block;
 }
 
 .chatroom #chat-messages li span:first-child::first-letter {
   text-transform: capitalize;
+}
+
+.chatroom #chat-messages .sent {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.chatroom #chat-messages .sent p {
+  background: var(--buy1);
+  border-radius: 5px 0px 5px 5px;
+  text-align: end;
 }
 
 span::first-letter {

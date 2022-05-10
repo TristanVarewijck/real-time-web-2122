@@ -18,6 +18,7 @@ chatio.on("connection", (socket) => {
     };
 
     socket.join(user.room);
+    chatio.to(user.room).emit("userID", user.id);
 
     // send the users inside this room to the client
     let roomUsers = users.filter((user) => user.room === room);

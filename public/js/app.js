@@ -12,6 +12,10 @@ const characterCounter = document.getElementById("chaCount");
 
 const userList = document.querySelector(".userGrid");
 let users = [];
+let nameOfUser;
+let userID;
+
+console.log(socket.id);
 
 const { room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
@@ -19,6 +23,7 @@ const { room } = Qs.parse(location.search, {
 
 // set user inside the room according to url
 socket.emit("joinRoom", room);
+socket.on("userID", (id) => (userID = id));
 
 userInput.addEventListener("keyup", () => {
   let maxCha = 16;
@@ -33,6 +38,7 @@ userInput.addEventListener("keyup", () => {
 // set a user in a room when you submit the username
 usernameForm.addEventListener("submit", function (e) {
   e.preventDefault();
+  nameOfUser = userInput.value;
   socket.emit("username", userInput.value);
   chatOverlay.remove();
   userInput.value = "";
@@ -62,22 +68,23 @@ const addNewMessage = (msg, user) => {
   const time = new Date();
   const timeStamp = time.getTime();
   const formattedTime = moment(timeStamp).format("hh:mm:ss");
-  const username = user.username;
+  const id = user.id;
 
   const receivedMsg = `
-  <div class="received">
-  <span>${username}</span><span>${": " + formattedTime}</span>
+  <div>
+  <span>${user.username}</span><span>${": " + formattedTime}</span>
   <p>${msg}</p>
   </div>`;
 
   const myMsg = `
-  <div class="send_message>
+  <div>
   <span>${formattedTime}</span>
   <p>${msg}</p>
   </div>`;
 
   let message = document.createElement("li");
-  message.innerHTML += user === username ? myMsg : receivedMsg;
+  message.innerHTML = id === userID ? myMsg : receivedMsg;
+  message.className = id === userID ? "sent" : "received";
   chatMessages.appendChild(message);
 };
 
