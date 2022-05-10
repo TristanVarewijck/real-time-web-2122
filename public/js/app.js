@@ -15,9 +15,7 @@ let users = [];
 let nameOfUser;
 let userID;
 
-console.log(socket.id);
-
-const { room } = Qs.parse(location.search, {
+const { id: room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
 

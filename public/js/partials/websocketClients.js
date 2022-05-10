@@ -1,10 +1,12 @@
-let coinID = "eth";
+const { id: room } = Qs.parse(location.search, {
+  ignoreQueryPrefix: true,
+});
 
 let wsPrices = new WebSocket(
-  `wss://stream.binance.com:9443/ws/${coinID}eur@miniTicker`
+  `wss://stream.binance.com:9443/ws/${room}eur@miniTicker`
 );
 let wsTrades = new WebSocket(
-  `wss://stream.binance.com:9443/ws/${coinID}eur@trade`
+  `wss://stream.binance.com:9443/ws/${room}eur@trade`
 );
 
 const pricesCleaning = (data) => {

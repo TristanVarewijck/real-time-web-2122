@@ -11,6 +11,7 @@ const users = [];
 
 chatio.on("connection", (socket) => {
   socket.on("joinRoom", (room) => {
+    console.log(chatio.sockets.adapter.rooms);
     // push user to a global users array with different rooms connected to it
     const user = {
       id: socket.id,
