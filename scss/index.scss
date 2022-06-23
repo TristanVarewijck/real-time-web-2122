@@ -1,34 +1,20 @@
 // imports
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-// variables
-$dark: #222222;
-$gray: #313131;
-$lightGray: #3c3c3c;
-$white: #ffffff;
-$blue: #5cfdd6;
-$green: #21df96;
-$buy1: rgba(0, 197, 121, 0.2);
-$buy2: rgba(0, 197, 121, 0.28);
-$red: #ff6060;
-$sell1: #431b1e;
-$sell2: #50181c;
-$fontStyle: "Inter", Helvetica, Arial, sans-serif;
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
 
 html {
-  margin: 0;
-  padding: 0;
-
-  ul {
-    margin: 0;
-    padding: 0;
-  }
+  @include noMarginPadding;
 
   body {
     background-color: $dark;
-    color: #ffffff;
+    color: $white;
     font-family: $fontStyle;
     height: 100vh;
+
+    ul {
+      @include noMarginPadding;
+    }
 
     span::first-letter {
       text-transform: capitalize;
@@ -45,12 +31,8 @@ html {
       align-items: center;
 
       ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+        @include horizontalList;
+        @include noMarginPadding;
         grid-area: indicators;
         li {
           small {
@@ -394,6 +376,8 @@ html {
     tbody tr td {
       font-weight: 600;
       font-size: 14px;
+      font-family: $fontStyle;
+      color: $white;
     }
 
     tbody tr td:first-child {
@@ -429,11 +413,8 @@ html {
       }
 
       ul {
-        display: flex;
-        justify-content: space-between;
-        padding: 0;
-        list-style-type: none;
-
+        @include horizontalList;
+        @include noMarginPadding;
         li {
           display: flex;
           border-radius: none;

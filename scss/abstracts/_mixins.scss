@@ -1,0 +1,12 @@
+// mixins
+@mixin noMarginPadding {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin horizontalList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
