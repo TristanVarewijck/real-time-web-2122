@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "scss": "node-sass --watch scss -o public/css"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,6 +15,7 @@
     "http-errors": "~1.6.3",
     "moment": "^2.29.3",
     "morgan": "~1.9.1",
+    "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1",
     "ws": "^8.5.0"
