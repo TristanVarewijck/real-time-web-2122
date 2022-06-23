@@ -1,3 +1,4 @@
+// This js file is only for handling the changes on the binance websockets
 import {
   wsPrices,
   wsTrades,
@@ -5,7 +6,10 @@ import {
   tradesCleaning,
 } from "./partials/websocketClients.js";
 
-console.log(wsPrices);
+const { id: room } = Qs.parse(location.search, {
+  ignoreQueryPrefix: true,
+});
+
 wsPrices.onopen = (event) => {
   console.log("connected to prices server");
 };
@@ -15,7 +19,7 @@ wsPrices.onmessage = (event) => {
 
   let priceHolder = document.querySelectorAll(".indicators li p");
   // priceholders
-  priceHolder[0].innerHTML = price.name;
+  priceHolder[0].innerHTML = room.toUpperCase() + " / EUR";
   priceHolder[1].innerHTML = price.close;
   priceHolder[2].innerHTML = price.open;
   priceHolder[3].innerHTML = price.high;
