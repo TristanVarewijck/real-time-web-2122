@@ -86,9 +86,9 @@ html {
                 position: relative;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-around;
+                justify-content: flex-start;
                 align-items: flex-start;
-                height: 150px;
+                height: 250px;
                 overflow: scroll;
 
                 li {
