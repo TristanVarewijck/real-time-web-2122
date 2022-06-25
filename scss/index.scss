@@ -49,6 +49,7 @@ html {
       }
 
       form {
+        position: relative;
         input,
         input:hover,
         input:active,
@@ -69,6 +70,44 @@ html {
           color: $white;
           font-style: italic;
           opacity: 67%;
+        }
+
+        .accordion {
+          position: absolute;
+          z-index: 2 !important;
+          width: 100%;
+
+          div {
+            .accordion-body {
+              ul::-webkit-scrollbar {
+                display: none;
+              }
+              ul {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-start;
+                height: 150px;
+                overflow: scroll;
+
+                li {
+                  display: flex;
+                  align-items: center;
+                  border-bottom: solid 0.5px $gray;
+                  width: 100%;
+                  padding-bottom: 0.4em;
+                  padding-top: 0.4em;
+
+                  p {
+                    @include noMarginPadding;
+                    font-weight: 400;
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
 

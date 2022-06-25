@@ -1,5 +1,4 @@
 // This file is only for handling the websockets on the client-side
-
 let socket = io();
 
 const chatForm = document.getElementById("chat-form");
@@ -82,6 +81,7 @@ const addNewMessage = (msg, user) => {
   <p>${msg}</p>
   </div>`;
 
+  console.log(userID, id);
   let message = document.createElement("li");
   message.innerHTML = id === userID ? myMsg : receivedMsg;
   message.className = id === userID ? "sent" : "received";
