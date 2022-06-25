@@ -2,6 +2,6 @@
 import { getSymbols } from "./partials/symbols.js";
 import { searchInput } from "./partials/searchInput.js";
 
-searchInput;
 // insert all current symbols into token select-list
+searchInput;
 getSymbols();
