@@ -56,12 +56,12 @@ wsTrades.onmessage = (event) => {
     : tableBody[1].insertBefore(row, tableBody[1].firstChild);
 
   let sellsRows = document.querySelectorAll(".sells table tbody tr");
-  sellsRows.length > maxRows
-    ? tableBody[1].removeChild(tableBody[1].lastElementChild)
-    : console.log("do nothing");
+  if (sellsRows.length > maxRows) {
+    tableBody[1].removeChild(tableBody[1].lastElementChild);
+  }
 
   let buysRows = document.querySelectorAll(".buys table tbody tr");
-  buysRows.length > maxRows
-    ? tableBody[0].removeChild(tableBody[0].lastElementChild)
-    : console.log("do nothing");
+  if (buysRows.length > maxRows) {
+    tableBody[0].removeChild(tableBody[0].lastElementChild);
+  }
 };

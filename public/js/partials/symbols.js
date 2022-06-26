@@ -28,6 +28,7 @@ async function getSymbols() {
             return v.includes(searchvalue);
           });
 
+          // delete all items before inserting again
           while (symbolList.firstChild) {
             symbolList.removeChild(symbolList.firstChild);
           }
