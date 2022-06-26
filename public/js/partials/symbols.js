@@ -1,11 +1,13 @@
 const symbolList = document.querySelector(".autocomplete");
+const accordion = document.querySelector("#flush-collapseThree");
+const searchInput = document.querySelector(".searchInput");
 
-let assets = [];
 async function getSymbols() {
   await fetch("https://api.binance.com/api/v3/exchangeInfo")
     .then((response) => response.json())
     .then((data) => {
       const symbols = data.symbols;
+      let assets = [];
 
       // push all symbols in to a array
       symbols.forEach((symbol) => {
@@ -15,17 +17,33 @@ async function getSymbols() {
       // remove duplicate items and sort alpabatical order
       let uniqueAssets = [...new Set(assets)].sort();
 
-      // for each item add to DOM
-      for (let index = 0; index < uniqueAssets.length; index++) {
-        const template = `
-       <p>${uniqueAssets[index]}</p>
-       `;
+      searchInput.onkeyup = (e) => {
+        if (e.target.value.length <= 0) {
+          accordion.classList.remove("show");
+        } else {
+          accordion.classList.add("show");
 
-        const symbolItem = document.createElement("li");
-        symbolItem.className = `${uniqueAssets[index]}`;
-        symbolItem.innerHTML = template;
-        symbolList.appendChild(symbolItem);
-      }
+          let searchvalue = e.target.value.toUpperCase();
+          let filterNames = uniqueAssets.filter((v, i) => {
+            return v.includes(searchvalue);
+          });
+
+          while (symbolList.firstChild) {
+            symbolList.removeChild(symbolList.firstChild);
+          }
+
+          for (let index = 0; index < filterNames.length; index++) {
+            const template = `
+           <p>${filterNames[index]}</p>
+           `;
+
+            const symbolItem = document.createElement("li");
+            symbolItem.className = `${filterNames[index]}`;
+            symbolItem.innerHTML = template;
+            symbolList.appendChild(symbolItem);
+          }
+        }
+      };
     })
     .catch((err) => console.log(err));
 }
