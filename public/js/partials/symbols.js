@@ -22,7 +22,6 @@ async function getSymbols() {
           accordion.classList.remove("show");
         } else {
           accordion.classList.add("show");
-
           let searchvalue = e.target.value.toUpperCase();
           let filterNames = uniqueAssets.filter((v, i) => {
             return v.includes(searchvalue);
@@ -33,15 +32,29 @@ async function getSymbols() {
             symbolList.removeChild(symbolList.firstChild);
           }
 
-          for (let index = 0; index < filterNames.length; index++) {
-            const template = `
-           <p>${filterNames[index]}</p>
-           `;
+          if (filterNames.length > 0) {
+            for (let index = 0; index < filterNames.length; index++) {
+              const template = `
+              <a href=/room?id=${filterNames[index].toLowerCase()}>
+                <p>${filterNames[index]}</p>
+              </a>
+             
+             `;
 
-            const symbolItem = document.createElement("li");
-            symbolItem.className = `${filterNames[index]}`;
-            symbolItem.innerHTML = template;
-            symbolList.appendChild(symbolItem);
+              const symbolItem = document.createElement("li");
+              symbolItem.className = `${filterNames[index]}`;
+              symbolItem.innerHTML = template;
+              symbolList.appendChild(symbolItem);
+            }
+          } else if (filterNames.length <= 0) {
+            const noResults = `
+            <p>No results...</p>
+            `;
+
+            const noResultsMessage = document.createElement("li");
+            noResultsMessage.className = "noResultsMessage";
+            noResultsMessage.innerHTML = noResults;
+            symbolList.appendChild(noResultsMessage);
           }
         }
       };
