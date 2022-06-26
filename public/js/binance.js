@@ -10,13 +10,12 @@ const { id: room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
 
-wsPrices.onopen = (event) => {
+wsPrices.onopen = () => {
   console.log("connected to prices server");
 };
 // live-stream prices on "/"
 wsPrices.onmessage = (event) => {
   let price = pricesCleaning(JSON.parse(event.data));
-
   let priceHolder = document.querySelectorAll(".indicators li p");
   // priceholders
   priceHolder[0].innerHTML = room.toUpperCase() + " / EUR";
@@ -26,7 +25,7 @@ wsPrices.onmessage = (event) => {
   priceHolder[4].innerHTML = price.low;
 };
 
-wsTrades.onopen = (event) => {
+wsTrades.onopen = () => {
   console.log("connected to trades server");
 };
 

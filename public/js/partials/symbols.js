@@ -18,6 +18,7 @@ async function getSymbols() {
       let uniqueAssets = [...new Set(assets)].sort();
 
       searchInput.onkeyup = (e) => {
+        // condition
         if (e.target.value.length <= 0) {
           accordion.classList.remove("show");
         } else {
@@ -48,7 +49,7 @@ async function getSymbols() {
             }
           } else if (filterNames.length <= 0) {
             const noResults = `
-            <p>No results...</p>
+            <p>No Results...</p>
             `;
 
             const noResultsMessage = document.createElement("li");

@@ -34,6 +34,7 @@ html {
         @include horizontalList;
         @include noMarginPadding;
         grid-area: indicators;
+
         li {
           small {
             opacity: 67%;
@@ -91,6 +92,9 @@ html {
                 max-height: 300px;
                 overflow: scroll;
 
+                li:hover {
+                  border-bottom: solid 0.5px $white;
+                }
                 li {
                   display: flex;
                   align-items: center;
@@ -98,6 +102,8 @@ html {
                   width: 100%;
                   padding-bottom: 0.4em;
                   padding-top: 0.4em;
+                  cursor: pointer;
+                  transition: 200ms ease-in-out;
 
                   p {
                     @include noMarginPadding;
