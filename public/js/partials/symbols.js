@@ -39,7 +39,7 @@ async function getSymbols() {
               <a href=/room?id=${filterNames[index].toLowerCase()}>
                 <p>${filterNames[index]}</p>
               </a>
-             
+
              `;
 
               const symbolItem = document.createElement("li");

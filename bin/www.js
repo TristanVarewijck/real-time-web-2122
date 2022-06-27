@@ -9,6 +9,8 @@ const chatio = new Server(server);
 // array with all users
 const users = [];
 
+// console.log(get().NSPair);
+
 chatio.on("connection", (socket) => {
   console.log(chatio.sockets.adapter.rooms);
   console.log(chatio.sockets.adapter["btc"]);

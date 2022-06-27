@@ -7,6 +7,7 @@
     "scss": "node-sass --watch scss -o public/css"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "cookie-parser": "~1.4.4",
     "crypto-symbol": "^3.5.84",
     "debug": "~2.6.9",
