@@ -5,43 +5,39 @@ const axios = require("axios").default;
 const { cryptoSymbol } = require("crypto-symbol");
 const { nameLookup } = cryptoSymbol({});
 require("dotenv").config();
-
 // DATABASE
-// connection string
-const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@binancechatcluster.szvgg.mongodb.net/?retryWrites=true&w=majority`;
+// const { MongoClient, ServerApiVersion } = require("mongodb");
+// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@binancechatcluster.szvgg.mongodb.net/?retryWrites=true&w=majority`;
+// const client = new MongoClient(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   serverApi: ServerApiVersion.v1,
+// });
 
-// settings
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverApi: ServerApiVersion.v1,
-});
+// async function run() {
+//   try {
+//     await client.connect();
+//     console.log("Connected correctly to server");
+//     const db = client.db("binance");
+//     const col = db.collection("coins");
 
-async function run() {
-  try {
-    await client.connect();
-    console.log("Connected correctly to server");
-    const db = client.db("test");
-    const col = db.collection("coins");
+//     // inserting a data set or singular items
+//     // await col.insertMany(dataSet);
 
-    let personDocument = {
-      name: { first: "Alan", last: "Turing" },
-      birth: new Date(1912, 5, 23), // May 23, 1912
-      death: new Date(1954, 5, 7), // May 7, 1954
-      contribs: ["Turing machine", "Turing test", "Turingery"],
-      views: 1250000,
-    };
+//     // find all items of singular items
+//     let response = await col.find().toArray();
 
-    await col.insertOne(personDocument);
-  } catch (err) {
-    console.log(err.stack);
-  } finally {
-    await client.close();
-  }
-}
+//     console.log(response);
 
-run().catch(console.dir);
+//     // console.log(response);
+//   } catch (err) {
+//     console.log(err.stack);
+//   } finally {
+//     await client.close();
+//   }
+// }
+
+// run().catch(console.dir);
 
 router.get("/", function (req, res, next) {
   res.redirect("/room?id=btc");
@@ -67,7 +63,7 @@ router.get("/room", function (req, res, next) {
         }
       });
 
-      // insert new-data in database
+      // insert new-data in JSON
       fs.writeFile("public/coins.json", JSON.stringify(dataSet), function (
         err
       ) {

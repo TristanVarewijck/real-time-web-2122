@@ -107,8 +107,15 @@ html {
 
                   p {
                     @include noMarginPadding;
-                    font-weight: 400;
+                    font-weight: 500;
                     font-size: 14px;
+                  }
+
+                  p:nth-of-type(2) {
+                    font-weight: 400;
+                    font-size: 12px;
+                    margin-top: 0.2em;
+                    opacity: 0.85;
                   }
                 }
               }
