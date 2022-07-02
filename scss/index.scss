@@ -93,12 +93,12 @@ html {
                 overflow: scroll;
 
                 li:hover {
-                  border-bottom: solid 0.5px $white;
+                  border-bottom: solid 1px $white;
                 }
                 li {
                   display: flex;
                   align-items: center;
-                  border-bottom: solid 0.5px $gray;
+                  border-bottom: solid 1px $gray;
                   width: 100%;
                   padding-bottom: 0.4em;
                   padding-top: 0.4em;

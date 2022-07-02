@@ -25,6 +25,7 @@ socket.emit("joinRoom", room);
 socket.on("userID", (id) => (userID = id));
 
 userInput.addEventListener("keyup", () => {
+  console.log(room);
   let maxCha = 16;
   let currentLength = userInput.value.length;
   if (currentLength >= maxCha) {
@@ -81,7 +82,6 @@ const addNewMessage = (msg, user) => {
   <p>${msg}</p>
   </div>`;
 
-  console.log(userID, id);
   let message = document.createElement("li");
   message.innerHTML = id === userID ? myMsg : receivedMsg;
   message.className = id === userID ? "sent" : "received";
@@ -89,6 +89,7 @@ const addNewMessage = (msg, user) => {
 };
 
 socket.on("userCount", function (count, users) {
+  console.log(users, count);
   usersCount.innerHTML = count;
 
   if (users !== undefined) {

@@ -12,30 +12,35 @@ const users = [];
 // console.log(get().NSPair);
 
 chatio.on("connection", (socket) => {
-  console.log(chatio.sockets.adapter.rooms);
-  console.log(chatio.sockets.adapter["btc"]);
   socket.on("joinRoom", (room) => {
+    console.log(room, "joined");
     // push user to a global users array with different rooms connected to it
     const user = {
       id: socket.id,
       room: room,
     };
 
+    console.log(users);
+
     socket.join(user.room);
     chatio.to(user.room).emit("userID", user.id);
 
     // send the users inside this room to the client
     let roomUsers = users.filter((user) => user.room === room);
+    console.log(roomUsers.length, roomUsers + "HALLOOOO");
     chatio.to(user.room).emit("userCount", roomUsers.length);
 
     socket.on("username", (name) => {
       user.username = name;
+
       users.push(user);
 
       chatio.to(user.room).emit("username", name);
 
       roomUsers = users.filter((user) => user.room === room);
       chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
+
+      console.log(users);
     });
 
     if (user?.username !== undefined) {

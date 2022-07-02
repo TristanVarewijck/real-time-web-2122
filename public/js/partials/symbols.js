@@ -7,6 +7,7 @@ async function getSymbols() {
     .then((response) => response.json())
     .then((data) => {
       searchInput.onkeyup = (e) => {
+        console.log(data);
         // condition
         if (e.target.value.length <= 0) {
           accordion.classList.remove("show");
@@ -15,7 +16,7 @@ async function getSymbols() {
           let searchvalue = e.target.value.toUpperCase();
 
           let filterNames = data.filter((v, i) => {
-            return v.id.includes(searchvalue);
+            return v.fullName.includes(searchvalue);
           });
 
           // delete all items before inserting again

@@ -44,6 +44,8 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/room", function (req, res, next) {
+  const dataSet = [];
+
   axios
     .get("https://api.binance.com/api/v3/exchangeInfo")
     .then(function (response) {
@@ -55,25 +57,24 @@ router.get("/room", function (req, res, next) {
       });
 
       let uniqueAssets = [...new Set(assets)].sort();
-      let dataSet = [];
+
       uniqueAssets.forEach((asset) => {
         let fullName = nameLookup(`   ${asset}   `);
         if (fullName) {
           dataSet.push({ id: asset, fullName: fullName });
         }
       });
-
-      // insert new-data in JSON
-      fs.writeFile("public/coins.json", JSON.stringify(dataSet), function (
-        err
-      ) {
-        if (err) throw err;
-        console.log("complete");
-      });
     })
+
     .catch(function (error) {
       console.log(error);
     });
+
+  // insert new-data in JSON
+  // fs.writeFile("public/coins.json", JSON.stringify(dataSet), function (err) {
+  //   if (err) throw err;
+  //   console.log("complete");
+  // });
 
   res.render("index");
 });
