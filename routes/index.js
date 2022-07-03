@@ -64,17 +64,18 @@ router.get("/room", function (req, res, next) {
           dataSet.push({ id: asset, fullName: fullName });
         }
       });
+      // insert new-data in JSON
+      fs.writeFile("public/coins.json", JSON.stringify(dataSet), function (
+        err
+      ) {
+        if (err) throw err;
+        console.log("complete");
+      });
     })
 
     .catch(function (error) {
       console.log(error);
     });
-
-  // insert new-data in JSON
-  // fs.writeFile("public/coins.json", JSON.stringify(dataSet), function (err) {
-  //   if (err) throw err;
-  //   console.log("complete");
-  // });
 
   res.render("index");
 });
