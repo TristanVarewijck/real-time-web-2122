@@ -23,9 +23,7 @@ const { id: room } = Qs.parse(location.search, {
 // set user inside the room according to url
 socket.emit("joinRoom", room);
 socket.on("userID", (id) => (userID = id));
-
 userInput.addEventListener("keyup", () => {
-  console.log(room);
   let maxCha = 16;
   let currentLength = userInput.value.length;
   if (currentLength >= maxCha) {
@@ -89,6 +87,8 @@ const addNewMessage = (msg, user) => {
 };
 
 socket.on("userCount", function (count, users) {
+  console.log(typeof users);
+
   console.log(users, count);
   usersCount.innerHTML = count;
 
@@ -105,14 +105,35 @@ socket.on("userCount", function (count, users) {
       <p>${user.username}</p>
     </div>
   
-    <a href="#">
+    <button class="private-chatButton" name="user" value=${user.username}>
       <img src="assets/icons/privateMessage.svg" alt="message-icon" />
-    </a>
+    </button>
     </li>`;
 
       let userItem = document.createElement("li");
       userItem.innerHTML = newUser;
       userList.appendChild(userItem);
+
+      const backButton = document.querySelector(".back-to-room");
+      const privateChat = document.querySelector(".private-chat");
+      const publicChat = document.querySelector(".public-chat");
+      const privateUsername = document.querySelector(".username-placeholder");
+      let privateChatButtons = document.querySelectorAll(".private-chatButton");
+
+      backButton.addEventListener("click", (e) => {
+        publicChat.classList.remove("hidden");
+        privateChat.classList.add("hidden");
+      });
+
+      for (var i = 0; i < privateChatButtons.length; i++) {
+        privateChatButtons[i].addEventListener("click", function () {
+          if (user.username !== this.value) {
+            publicChat.classList.add("hidden");
+            privateChat.classList.remove("hidden");
+            privateUsername.innerHTML = this.value;
+          }
+        });
+      }
     });
   }
 });

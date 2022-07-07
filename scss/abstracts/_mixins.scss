@@ -10,3 +10,10 @@
   align-items: center;
   list-style-type: none;
 }
+
+@mixin buttonReset {
+  background: none;
+  border: none;
+  height: fit-content;
+  width: fit-content;
+}

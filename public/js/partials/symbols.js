@@ -7,7 +7,6 @@ async function getSymbols() {
     .then((response) => response.json())
     .then((data) => {
       searchInput.onkeyup = (e) => {
-        console.log(data);
         // condition
         if (e.target.value.length <= 0) {
           accordion.classList.remove("show");
@@ -56,3 +55,35 @@ async function getSymbols() {
 }
 
 export { getSymbols };
+
+// server-side data
+// axios
+//   .get("https://api.binance.com/api/v3/exchangeInfo")
+//   .then(function (response) {
+//     const symbols = response.data.symbols;
+
+//     let assets = [];
+//     symbols.forEach((symbol) => {
+//       assets.push(symbol.baseAsset);
+//     });
+
+//     let uniqueAssets = [...new Set(assets)].sort();
+
+//     uniqueAssets.forEach((asset) => {
+//       let fullName = nameLookup(`   ${asset}   `);
+//       if (fullName) {
+//         dataSet.push({ id: asset, fullName: fullName });
+//       }
+//     });
+//     // insert new-data in JSON
+//     fs.writeFile("public/coins.json", JSON.stringify(dataSet), function (
+//       err
+//     ) {
+//       if (err) throw err;
+//       console.log("complete");
+//     });
+//   })
+
+//   .catch(function (error) {
+//     console.log(error);
+//   });

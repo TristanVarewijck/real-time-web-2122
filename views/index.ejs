@@ -10,19 +10,31 @@
       <div class="chatroom">
         <!-- overlay -->
         <%- include('chatroom/overlay'); -%>
-        <!-- header of the chatroom -->
-        <%- include('chatroom/nav'); -%>
-        <div class="box-of-messages">
-          <%- include('chatroom/chatbox/roomsAccordion'); -%>
-          <!--  -->
-          <%- include('chatroom/chatbox/usersAccordion'); -%>
+
+        <div class="private-chat hidden">
+          <%- include('chatprivate/nav'); -%>
+          <div class="box-of-private-messages"></div>
+
+          <%- include('chatprivate/chatbox/messageBox'); -%>
+          <form id="chat-form" action="">
+            <%- include('chatprivate/chatbox/chatForm'); -%>
+          </form>
         </div>
-        <!-- The messages will append here! -->
-        <%- include('chatroom/chatbox/messageBox'); -%>
-        <form id="chat-form" action="">
-          <%- include('chatroom/chatbox/chatForm'); -%>
-        </form>
+
+        <div class="public-chat">
+          <%- include('chatroom/nav'); -%>
+          <div class="box-of-messages">
+            <%- include('chatroom/chatbox/roomsAccordion'); -%> <%-
+            include('chatroom/chatbox/usersAccordion'); -%>
+          </div>
+
+          <%- include('chatroom/chatbox/messageBox'); -%>
+          <form id="chat-form" action="">
+            <%- include('chatroom/chatbox/chatForm'); -%>
+          </form>
+        </div>
       </div>
+
       <div class="buys"><%- include('buys'); -%></div>
       <div class="sells"><%- include('sells'); -%></div>
     </section>

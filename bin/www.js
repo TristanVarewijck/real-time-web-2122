@@ -6,21 +6,20 @@ app.set("port", port);
 let server = http.createServer(app);
 const { Server } = require("socket.io");
 const chatio = new Server(server);
+const fs = require("fs");
+const axios = require("axios").default;
+const { cryptoSymbol } = require("crypto-symbol");
+const { nameLookup } = cryptoSymbol({});
 // array with all users
 const users = [];
 
-// console.log(get().NSPair);
-
 chatio.on("connection", (socket) => {
   socket.on("joinRoom", (room) => {
-    console.log(room, "joined");
     // push user to a global users array with different rooms connected to it
     const user = {
       id: socket.id,
       room: room,
     };
-
-    console.log(users);
 
     socket.join(user.room);
     chatio.to(user.room).emit("userID", user.id);
