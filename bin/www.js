@@ -24,29 +24,35 @@ chatio.on("connection", (socket) => {
     let roomUsers = users.filter((user) => user.room === room);
     chatio.to(user.room).emit("userCount", roomUsers.length);
 
-    socket.on("username", (name) => {
-      user.username = name;
-      users.push(user);
+    socket.on(
+      "username",
+      (name) => {
+        user.username = name;
+        users.push(user);
 
-      chatio.to(user.room).emit("username", name);
-      roomUsers = users.filter((user) => user.room === room);
-      chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
+        chatio.to(user.room).emit("username", name);
+        roomUsers = users.filter((user) => user.room === room);
+        chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
 
-      // See how many users are in each room
-      let openRooms = [];
-      const arr = Array.from(chatio.sockets.adapter.rooms);
-      const filtered = arr.filter((room) => !room[1].has(room[0]));
-      const res = filtered.map((i) => i[0]);
-      res.forEach((roomName) => {
-        const openRoom = {
-          room: roomName,
-          count: chatio.sockets.adapter.rooms.get(roomName).size,
-        };
-        openRooms.push(openRoom);
-      });
-      console.log(openRooms);
-      chatio.to(user.room).emit("open rooms", openRooms);
-    });
+        // See how many users are in each room
+        let openRooms = [];
+        setTimeout(() => {
+          const arr = Array.from(chatio.sockets.adapter.rooms);
+          const filtered = arr.filter((room) => !room[1].has(room[0]));
+          const res = filtered.map((i) => i[0]);
+          res.forEach((roomName) => {
+            const openRoom = {
+              roomName: roomName.toUpperCase(),
+              count: chatio.sockets.adapter.rooms.get(roomName).size,
+            };
+            openRooms.push(openRoom);
+          });
+          console.log(openRooms);
+          chatio.to(user.room).emit("open rooms", openRooms);
+        });
+      },
+      "500"
+    );
 
     if (user?.username !== undefined) {
       console.log("myname", user.username);

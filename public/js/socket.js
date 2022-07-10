@@ -11,6 +11,8 @@ const usernameForm = document.getElementById("user-form");
 const userInput = document.getElementById("user-input");
 const characterCounter = document.getElementById("chaCount");
 
+const roomsList = document.getElementById("roomsList");
+
 const userList = document.querySelector(".userGrid");
 let nameOfUser;
 let userID;
@@ -66,12 +68,18 @@ socket.on("open rooms", function (openrooms) {
       roomsList.removeChild(roomsList.lastChild);
     }
 
-    openrooms.forEach((user) => {
+    openrooms.forEach((openroom) => {
       const newRoom = `
-    <div>
-      <img src="assets/icons/dot.svg" alt="online-dot" />
-      <p>${user.username}</p>
-    </div>
+      <a href=room?id=${openroom.roomName}>
+      <div>
+        <p>${openroom.roomName}</p>
+      </div>
+
+      <div>
+        <span>${openroom.count}</span>
+        <img src="assets/icons/online.svg" alt="people icon" />
+      </div>
+    </a>
     `;
 
       let roomItem = document.createElement("li");
