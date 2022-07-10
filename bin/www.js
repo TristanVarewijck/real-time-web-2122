@@ -6,10 +6,6 @@ app.set("port", port);
 let server = http.createServer(app);
 const { Server } = require("socket.io");
 const chatio = new Server(server);
-const fs = require("fs");
-const axios = require("axios").default;
-const { cryptoSymbol } = require("crypto-symbol");
-const { nameLookup } = cryptoSymbol({});
 // array with all users
 const users = [];
 
@@ -26,18 +22,17 @@ chatio.on("connection", (socket) => {
 
     // send the users inside this room to the client
     let roomUsers = users.filter((user) => user.room === room);
-    console.log(roomUsers.length, roomUsers + "HALLOOOO");
     chatio.to(user.room).emit("userCount", roomUsers.length);
 
     socket.on("username", (name) => {
       user.username = name;
-
       users.push(user);
 
       chatio.to(user.room).emit("username", name);
-
       roomUsers = users.filter((user) => user.room === room);
       chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
+
+      let size = chatio.sockets.adapter.rooms.get(room).size;
 
       console.log(users);
     });
@@ -49,6 +44,10 @@ chatio.on("connection", (socket) => {
     // handle the chat messages
     socket.on("chat message", (msg) => {
       chatio.to(room).emit("chat message", msg, user);
+    });
+
+    socket.on("private chat message", (msg) => {
+      chatio.to(room).emit("private chat message", msg, user);
     });
   });
 

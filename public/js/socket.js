@@ -12,7 +12,6 @@ const userInput = document.getElementById("user-input");
 const characterCounter = document.getElementById("chaCount");
 
 const userList = document.querySelector(".userGrid");
-let users = [];
 let nameOfUser;
 let userID;
 
@@ -23,6 +22,7 @@ const { id: room } = Qs.parse(location.search, {
 // set user inside the room according to url
 socket.emit("joinRoom", room);
 socket.on("userID", (id) => (userID = id));
+
 userInput.addEventListener("keyup", () => {
   let maxCha = 16;
   let currentLength = userInput.value.length;
@@ -35,6 +35,7 @@ userInput.addEventListener("keyup", () => {
 
 // set a user in a room when you submit the username
 usernameForm.addEventListener("submit", function (e) {
+  // if a username already excists please trow and error message
   e.preventDefault();
   nameOfUser = userInput.value;
   socket.emit("username", userInput.value);
@@ -49,6 +50,7 @@ socket.on("username", function (name) {
   chatMessages.appendChild(joinedUser);
 });
 
+// public chat!!!
 chatForm.addEventListener("submit", function (e) {
   e.preventDefault();
   if (chatInput.value) {
@@ -66,8 +68,6 @@ const addNewMessage = (msg, user) => {
   const time = new Date();
   const timeStamp = time.getTime();
   const formattedTime = moment(timeStamp).format("hh:mm:ss");
-  const id = user.id;
-
   const receivedMsg = `
   <div>
   <span>${user.username}</span><span>${": " + formattedTime}</span>
@@ -81,15 +81,12 @@ const addNewMessage = (msg, user) => {
   </div>`;
 
   let message = document.createElement("li");
-  message.innerHTML = id === userID ? myMsg : receivedMsg;
-  message.className = id === userID ? "sent" : "received";
+  message.innerHTML += user.username === nameOfUser ? myMsg : receivedMsg;
+  message.className += user.username === nameOfUser ? "sent" : "received";
   chatMessages.appendChild(message);
 };
 
 socket.on("userCount", function (count, users) {
-  console.log(typeof users);
-
-  console.log(users, count);
   usersCount.innerHTML = count;
 
   if (users !== undefined) {
@@ -137,6 +134,49 @@ socket.on("userCount", function (count, users) {
     });
   }
 });
+
+// private chat!!!
+const privateChatForm = document.getElementById("private-chat-form");
+const privateChatInput = document.getElementById("private-chat-input");
+const privateChatMessages = document.getElementById("private-chat-messages");
+
+privateChatForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (privateChatInput.value) {
+    socket.emit("private chat message", privateChatInput.value);
+    privateChatInput.value = "";
+  }
+});
+
+socket.on("private chat message", function (msg, user) {
+  addNewPrivateMessage(msg, user);
+});
+
+const addNewPrivateMessage = (msg, user) => {
+  const time = new Date();
+  const timeStamp = time.getTime();
+  const formattedTime = moment(timeStamp).format("hh:mm:ss");
+  const id = user.id;
+
+  const receivedMsg = `
+  <div>
+  <span>${user.username}</span><span>${": " + formattedTime}</span>
+  <p>${msg}</p>
+  </div>`;
+
+  const myMsg = `
+  <div>
+  <span>${formattedTime}</span>
+  <p>${msg}</p>
+  </div>`;
+
+  let message = document.createElement("li");
+  message.innerHTML = id === userID ? myMsg : receivedMsg;
+  message.className = id === userID ? "sent" : "received";
+  privateChatMessages.appendChild(message);
+};
+
+console.log(privateChatForm, privateChatInput, privateChatMessages);
 
 // catch when a user leaves the room
 socket.on("user-left", function (user) {

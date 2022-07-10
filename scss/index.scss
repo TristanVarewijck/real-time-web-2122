@@ -297,7 +297,8 @@ html {
         }
 
         // chat messages
-        #chat-messages {
+        #chat-messages,
+        #private-chat-messages {
           list-style-type: none;
           padding-left: 1.5em;
           padding-right: 1.5em;
