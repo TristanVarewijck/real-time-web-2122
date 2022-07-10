@@ -32,9 +32,20 @@ chatio.on("connection", (socket) => {
       roomUsers = users.filter((user) => user.room === room);
       chatio.to(user.room).emit("userCount", roomUsers.length, roomUsers);
 
-      let size = chatio.sockets.adapter.rooms.get(room).size;
-
-      console.log(users);
+      // See how many users are in each room
+      let openRooms = [];
+      const arr = Array.from(chatio.sockets.adapter.rooms);
+      const filtered = arr.filter((room) => !room[1].has(room[0]));
+      const res = filtered.map((i) => i[0]);
+      res.forEach((roomName) => {
+        const openRoom = {
+          room: roomName,
+          count: chatio.sockets.adapter.rooms.get(roomName).size,
+        };
+        openRooms.push(openRoom);
+      });
+      console.log(openRooms);
+      chatio.to(user.room).emit("open rooms", openRooms);
     });
 
     if (user?.username !== undefined) {

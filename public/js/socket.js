@@ -59,6 +59,29 @@ chatForm.addEventListener("submit", function (e) {
   }
 });
 
+// open rooms
+socket.on("open rooms", function (openrooms) {
+  if (openrooms !== undefined) {
+    while (roomsList.firstChild) {
+      roomsList.removeChild(roomsList.lastChild);
+    }
+
+    openrooms.forEach((user) => {
+      const newRoom = `
+    <div>
+      <img src="assets/icons/dot.svg" alt="online-dot" />
+      <p>${user.username}</p>
+    </div>
+    `;
+
+      let roomItem = document.createElement("li");
+      roomItem.innerHTML = newRoom;
+      roomsList.appendChild(roomItem);
+    });
+  }
+});
+
+// messages
 socket.on("chat message", function (msg, user) {
   addNewMessage(msg, user);
 });
@@ -171,8 +194,8 @@ const addNewPrivateMessage = (msg, user) => {
   </div>`;
 
   let message = document.createElement("li");
-  message.innerHTML = id === userID ? myMsg : receivedMsg;
-  message.className = id === userID ? "sent" : "received";
+  message.innerHTML += user.username === nameOfUser ? myMsg : receivedMsg;
+  message.className += user.username === nameOfUser ? "sent" : "received";
   privateChatMessages.appendChild(message);
 };
 
