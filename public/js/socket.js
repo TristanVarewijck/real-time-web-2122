@@ -1,6 +1,5 @@
 // This file is only for handling the websockets on the client-side
 let socket = io();
-
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
 const chatMessages = document.getElementById("chat-messages");
@@ -155,7 +154,7 @@ socket.on("userCount", function (count, users) {
 
       for (var i = 0; i < privateChatButtons.length; i++) {
         privateChatButtons[i].addEventListener("click", function () {
-          if (user.username !== this.value) {
+          if (nameOfUser !== this.value) {
             publicChat.classList.add("hidden");
             privateChat.classList.remove("hidden");
             privateUsername.innerHTML = this.value;

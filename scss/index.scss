@@ -490,9 +490,17 @@ html {
         }
       }
 
+      #roomsList {
+        justify-content: flex-start;
+
+        li {
+          margin-right: 15px;
+        }
+      }
       ul {
         @include horizontalList;
         @include noMarginPadding;
+        flex-wrap: wrap;
         li {
           display: flex;
           border-radius: none;
