@@ -4,6 +4,8 @@ const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
 const chatMessages = document.getElementById("chat-messages");
 const usersCount = document.getElementById("userCount");
+const emojiPickerContainer = document.querySelector(".emoji-picker-container");
+const emojiButtonImg = document.querySelector(".emoji-button img");
 
 const chatOverlay = document.getElementById("chat-overlay");
 const usernameForm = document.getElementById("user-form");
@@ -54,6 +56,19 @@ socket.on("username", function (name) {
 // public chat!!!
 chatForm.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  // check if element has a certain class
+  if (emojiPickerContainer.classList.contains("hidden") === false) {
+    emojiPickerContainer.classList.add("hidden");
+
+    // change icon
+    if (emojiButtonImg.src == "http://localhost:3000/assets/icons/smiley.svg") {
+      emojiButtonImg.src = "http://localhost:3000/assets/icons/cross.svg";
+    } else {
+      emojiButtonImg.src = "http://localhost:3000/assets/icons/smiley.svg";
+    }
+  }
+
   if (chatInput.value) {
     socket.emit("chat message", chatInput.value);
     chatInput.value = "";

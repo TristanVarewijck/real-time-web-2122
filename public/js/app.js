@@ -7,17 +7,24 @@ getSymbols();
 
 const emojiPickerContainer = document.querySelector(".emoji-picker-container");
 const emojiPicker = document.querySelector(".emoji-picker");
-
-emojiPicker.addEventListener("emoji-click", (event) =>
-  console.log(event.detail)
-);
-
+const inputField = document.getElementById("chat-input");
 const emojiButton = document.querySelector(".emoji-button");
+const emojiButtonImg = document.querySelector(".emoji-button img");
+
 emojiButton.addEventListener("click", (e) => {
+  // hide container
   emojiPickerContainer.classList.toggle("hidden");
-  console.log(emojiPickerContainer);
+
+  // change button state
+  if (emojiButtonImg.src == "http://localhost:3000/assets/icons/smiley.svg") {
+    emojiButtonImg.src = "http://localhost:3000/assets/icons/cross.svg";
+  } else {
+    emojiButtonImg.src = "http://localhost:3000/assets/icons/smiley.svg";
+  }
 });
 
-emojiPicker.addEventListener("emoji-click", (event) =>
-  console.log(event.detail)
-);
+// append emoji after text
+emojiPicker.addEventListener("emoji-click", function selectEmoji() {
+  const currentInputValue = inputField.value;
+  inputField.value = currentInputValue + event.detail.unicode;
+});
