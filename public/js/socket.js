@@ -1,4 +1,6 @@
 // This file is only for handling the websockets on the client-side
+
+import { imgToggler } from "./partials/emojiPicker.js";
 let socket = io();
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
@@ -62,11 +64,10 @@ chatForm.addEventListener("submit", function (e) {
     emojiPickerContainer.classList.add("hidden");
 
     // change icon
-    if (emojiButtonImg.src == "http://localhost:3000/assets/icons/smiley.svg") {
-      emojiButtonImg.src = "http://localhost:3000/assets/icons/cross.svg";
-    } else {
-      emojiButtonImg.src = "http://localhost:3000/assets/icons/smiley.svg";
-    }
+    emojiButtonImg.src = imgToggler(
+      "http://localhost:3000/assets/icons/smiley.svg",
+      "http://localhost:3000/assets/icons/cross.svg"
+    );
   }
 
   if (chatInput.value) {
