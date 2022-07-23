@@ -18,7 +18,6 @@ html {
 
     .hidden {
       display: none;
-      transition: 200ms linear;
     }
 
     span::first-letter {
@@ -611,6 +610,17 @@ html {
             }
           }
         }
+      }
+    }
+
+    .emoji-picker-container {
+      position: absolute;
+      // display: none;
+      bottom: 125px;
+      margin: 0 0 0 15px;
+      width: 350px;
+      .emoji-picker {
+        width: 100%;
       }
     }
 

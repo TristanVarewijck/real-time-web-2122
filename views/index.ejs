@@ -11,6 +11,7 @@
         <!-- overlay -->
         <%- include('chatroom/overlay'); -%>
 
+        <!-- private-chat -->
         <div class="private-chat hidden">
           <%- include('chatprivate/nav'); -%>
           <div class="box-of-private-messages"></div>
@@ -21,6 +22,7 @@
           </form>
         </div>
 
+        <!-- public-chat -->
         <div class="public-chat">
           <%- include('chatroom/nav'); -%>
           <div class="box-of-messages">
@@ -29,12 +31,18 @@
           </div>
 
           <%- include('chatroom/chatbox/messageBox'); -%>
+
+          <div class="emoji-picker-container hidden">
+            <emoji-picker class="emoji-picker dark"></emoji-picker>
+          </div>
+
           <form id="chat-form" action="">
             <%- include('chatroom/chatbox/chatForm'); -%>
           </form>
         </div>
       </div>
 
+      <!-- sells and buys -->
       <div class="buys"><%- include('buys'); -%></div>
       <div class="sells"><%- include('sells'); -%></div>
     </section>
