@@ -615,12 +615,15 @@ html {
 
     .emoji-picker-container {
       position: absolute;
-      // display: none;
       bottom: 125px;
       margin: 0 0 0 15px;
       width: 350px;
       .emoji-picker {
-        width: 100%;
+        --background: #222222;
+        --border-color: #3c3c3c;
+        --input-border-radius: 3px;
+        --indicator-color: #ffff;
+        --input-font-size: 13.5px;
       }
     }
 

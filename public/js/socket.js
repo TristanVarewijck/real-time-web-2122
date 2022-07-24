@@ -85,7 +85,7 @@ socket.on("open rooms", function (openrooms) {
 
     openrooms.forEach((openroom) => {
       const newRoom = `
-      <a href=room?id=${openroom.roomName}>
+      <a href=room?id=${openroom.roomName.toLowerCase()}>
       <div>
         <p>${openroom.roomName}</p>
       </div>
@@ -202,7 +202,6 @@ const addNewPrivateMessage = (msg, user) => {
   const time = new Date();
   const timeStamp = time.getTime();
   const formattedTime = moment(timeStamp).format("hh:mm:ss");
-  const id = user.id;
 
   const receivedMsg = `
   <div>
@@ -221,8 +220,6 @@ const addNewPrivateMessage = (msg, user) => {
   message.className += user.username === nameOfUser ? "sent" : "received";
   privateChatMessages.appendChild(message);
 };
-
-console.log(privateChatForm, privateChatInput, privateChatMessages);
 
 // catch when a user leaves the room
 socket.on("user-left", function (user) {
